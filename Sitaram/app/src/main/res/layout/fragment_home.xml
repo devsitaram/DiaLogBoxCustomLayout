@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="SpeakableTextPresentCheck,UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="900dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="300dp"
+                android:contentDescription="@null"
+                android:src="@mipmap/ic_hero" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    tools:ignore="UselessParent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/sita_ram_thing"
+                        android:textAlignment="center"
+                        android:textSize="25sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="12dp"
+                        android:backgroundTint="#E1DFDF"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="20dp"
+                                android:text="@string/age"
+                                android:textAlignment="center"
+                                android:textSize="10sp"
+                                tools:ignore="RtlSymmetry,SmallSp" />
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="20dp"
+                                android:text="@string/city"
+                                android:textAlignment="center"
+                                android:textSize="10sp"
+                                tools:ignore="SmallSp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="20dp"
+                                android:text="@string/height"
+                                android:textAlignment="center"
+                                android:textSize="10sp"
+                                tools:ignore="SmallSp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="30dp"
+                                android:text="@string/_20"
+                                android:textAlignment="center"
+                                android:textSize="15sp"
+                                tools:ignore="RtlSymmetry" />
+
+                            <TextView
+                                android:layout_width="120dp"
+                                android:layout_height="30dp"
+                                android:text="@string/kathmandu"
+                                android:textAlignment="center"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:text="@string/_5_9"
+                                android:textAlignment="center"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="12dp"
+                            android:backgroundTint="#E1DFDF"
+                            android:columnCount="3"
+                            android:orientation="horizontal"
+                            android:rowCount="2">
+
+                        </GridLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="370dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="5dp"
+                        android:paddingLeft="3sp"
+                        android:paddingRight="3sp"
+                        android:text="@string/i_am_sita_ram_thing_from_sindhupalchowk_and_i_m_a_student_of_islington_college_i_am_born_in_nepal_in_sindhupalchowk_district_Melamchi_Minicipality_currently_bachelor_second_years"
+                        android:textAlignment="center"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="214dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="12dp"
+                        android:background="@drawable/shape"
+                        android:backgroundTint="#F3EFEF"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/first_name"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/Sita_Ram"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/Last_name"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/Tamang"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/Gender"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/Male"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/Phone_no"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/_9732629054"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="150dp"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/country"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:paddingStart="20sp"
+                                    android:text="@string/nepal"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

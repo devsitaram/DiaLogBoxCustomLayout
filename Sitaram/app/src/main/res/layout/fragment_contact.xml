@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ContactFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/img_contact"
+                    tools:ignore="ImageContrastCheck" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="576dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/shape"
+                android:backgroundTint="#D0FFFFFF"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape">
+
+                    <EditText
+                        android:id="@+id/editTextSearch"
+                        android:layout_width="242dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:autofillHints=""
+                        android:background="@drawable/contact_page_shape"
+                        android:ems="10"
+                        android:hint="@string/Search"
+                        android:inputType="textMultiLine"
+                        android:textAlignment="center"
+                        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+                    <Button
+                        android:id="@+id/ic_search"
+                        android:layout_width="48dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="#00FFFFFF"
+                        app:drawableLeftCompat="@drawable/ic_baseline_search_24"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape">
+
+                    <EditText
+                        android:id="@+id/editTextPhone"
+                        android:layout_width="244dp"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:autofillHints=""
+                        android:background="@drawable/contact_page_shape"
+                        android:ems="10"
+                        android:hint="@string/Phone_no"
+                        android:inputType="phone"
+                        android:textAlignment="center"
+                        tools:ignore="TextContrastCheck" />
+
+                    <Button
+                        android:id="@+id/ic_contact"
+                        android:layout_width="48dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:backgroundTint="#00FFFFFF"
+                        app:drawableLeftCompat="@drawable/ic_baseline_phone_call"
+                        tools:ignore="DuplicateIds,SpeakableTextPresentCheck" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/contact_us"
+                        android:textColor="@color/black"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/call_us_or_send_a_message_and_we_ll_respond_as_soon_as_possible"
+                        android:textColor="#F7303030" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:background="#F8F8F8">
+
+                    <EditText
+                        android:id="@+id/editTextEmailAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:autofillHints=""
+                        android:background="@drawable/contact_page_shape"
+                        android:drawableEnd="@drawable/ic_baseline_email_24"
+                        android:ems="10"
+                        android:hint="@string/to"
+                        android:inputType="textEmailAddress"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="25sp"
+                        tools:ignore="RtlSymmetry,TextContrastCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="#F8F8F8">
+
+                    <EditText
+                        android:id="@+id/editTextSubject"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:autofillHints=""
+                        android:background="@drawable/contact_page_shape"
+                        android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
+                        android:ems="10"
+                        android:hint="@string/subject"
+                        android:inputType="textEmailSubject"
+                        android:paddingStart="25sp"
+                        android:paddingEnd="10dp"
+                        tools:ignore="RtlSymmetry,TextContrastCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="#F8F8F8">
+
+                    <EditText
+                        android:id="@+id/editTextDescriptions"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/contact_page_shape"
+                        android:drawableEnd="@drawable/ic_baseline_near_message_24"
+                        android:ems="10"
+                        android:hint="@string/Description"
+                        android:inputType="textMultiLine"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="25sp"
+                        tools:ignore="RtlSymmetry,TouchTargetSizeCheck,TextContrastCheck"
+                        android:autofillHints="" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/ic_sendSms"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="#03B0FF"
+                    android:text="@string/send"
+                    tools:ignore="TextContrastCheck" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

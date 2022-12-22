@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        tools:ignore="MissingConstraints">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9700E2FF"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="UselessParent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="264dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="@null"
+                        android:src="@mipmap/ic_hero" />
+
+                    <Button
+                        android:id="@+id/btnCamera"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:background="@drawable/ic_baseline_camera_alt_24"
+                        android:backgroundTint="#0B0A0A"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="@string/profile"
+                        android:textAlignment="center"
+                        android:textSize="25sp"
+                        tools:ignore="DuplicateIds" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="595dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="30dp"
+                    android:backgroundTint="#E1DFDF"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="31dp"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="30dp"
+                            android:paddingStart="20sp"
+                            android:text="@string/Name"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:paddingStart="2sp"
+                            android:text="@string/sita_ram_thing"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="31dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="30dp"
+                            android:paddingStart="20sp"
+                            android:text="@string/Phone_no"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:paddingStart="2sp"
+                            android:text="@string/_9732629054"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="31dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="30dp"
+                            android:paddingStart="20sp"
+                            android:text="@string/gender"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:paddingStart="2sp"
+                            android:text="@string/Male"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="31dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="30dp"
+                            android:paddingStart="20sp"
+                            android:text="@string/ages"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="2sp"
+                            android:text="@string/_20_years"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="20sp"
+                            android:text="@string/Email"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="2sp"
+                            android:text="@string/np01ma422003_gmail_com"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="190dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#E6E5E8"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="5dp"
+                            android:paddingStart="20sp"
+                            android:text="@string/education_qualification"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="10dp"
+                            android:paddingStart="20sp"
+                            android:text="@string/see_grade_3_25_gpa_on_graduate_form_terse_secondary_school_2018"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:paddingStart="20sp"
+                            android:text="@string/slc_grade_3_22_gpa_on_graduate_form_xavier_international_college_2018"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="5dp"
+                            android:paddingStart="20sp"
+                            android:text="@string/further_study_at_islington_college_for_bachelor_second_years"
+                            android:textSize="15sp"
+                            tools:ignore="RtlSymmetry" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:paddingStart="20sp"
+                        android:text="@string/in_the_current_years_i_can_learn_by_programming_on_bit_i_m_not_complete_in_my_bachelor_s_but_running_the_second_year_i_will_daily_study_and_self_learning_or_research_educational_knowledge" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

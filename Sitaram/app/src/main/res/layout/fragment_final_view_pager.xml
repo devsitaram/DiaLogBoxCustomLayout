@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FinalViewPagerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:layout_width="330dp"
+            android:layout_height="315dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@mipmap/ic_book"
+            android:contentDescription="@null" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:paddingLeft="5dp"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:text="@string/this_is_the_educational_app_this_app_is_the_first_time_launched_by_sitaram_with_his_self_study_and_research_the_new_things"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navbar_ic_home"
+        android:icon="@drawable/ic_baseline_home_navbar"
+        android:title="@string/Home" />
+
+    <item
+        android:id="@+id/navbar_ic_profile"
+        android:icon="@drawable/ic_baseline_person_navbar"
+        android:title="@string/Profils" />
+
+    <item
+        android:id="@+id/navbar_ic_content"
+        android:icon="@drawable/ic_baseline_phone_call"
+        android:title="@string/Contact" />
+
+    <item
+        android:id="@+id/navbar_ic_skill"
+        android:icon="@drawable/ic_baseline_skill_navbar"
+        android:title="@string/Skill" />
+
+    <item
+        android:id="@+id/navbar_ic_hobbies"
+        android:icon="@drawable/ic_baseline_hobbies_navbar"
+        android:title="@string/Hobbies" />
+
+</menu>

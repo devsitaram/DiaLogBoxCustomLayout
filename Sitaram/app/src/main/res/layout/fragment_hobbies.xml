@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/hobbies_fragment"
+    tools:context=".HobbiesFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints,UselessParent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#EDEDED"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape"
+                android:backgroundTint="#F200BCD4"
+                android:orientation="vertical" >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="320dp"
+                    android:src="@mipmap/ic_hobbies_img"
+                    android:contentDescription="@null">
+                </ImageView>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_marginTop="250dp"
+                android:textSize="30sp"
+                android:text="@string/hobbies"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="285dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:text="List of the hobbies"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    tools:ignore="HardcodedText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="700dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="340dp"
+                android:layout_marginEnd="12dp"
+                android:backgroundTint="#E1DFDF"
+                android:orientation="vertical">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:columnCount="2"
+                    android:rowCount="6">
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@color/white"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/img_football"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/Football"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@color/white"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/img_desing"></ImageView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/designing"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@color/white"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/img_typing"></ImageView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/typing"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@color/white"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/img_reading"></ImageView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/reading"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@color/white"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/img_volleyball"></ImageView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/volleyball"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@color/white"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/img_music"></ImageView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/music"
+                            android:textAlignment="center" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@color/white"
+                            android:contentDescription="@null"
+                            android:src="@mipmap/img_watching"></ImageView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/movies"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="170dp"
+                        android:layout_height="150dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:orientation="vertical"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@color/white"
+                            android:contentDescription="TODO"
+                            android:src="@mipmap/img_swimming"></ImageView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:text="@string/swimming"
+                            android:textAlignment="center" />
+                    </LinearLayout>
+                </GridLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>

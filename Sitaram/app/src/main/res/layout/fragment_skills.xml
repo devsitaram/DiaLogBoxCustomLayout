@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".SkillsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/img_photo"
+        tools:ignore="ScrollViewCount,UselessParent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="195dp"
+                        android:background="@drawable/shape"
+                        android:backgroundTint="#E6038FFD"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:paddingLeft="10sp"
+                            android:paddingRight="10sp"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:text="@string/the_workplace_soft_skills_are_considered_to_be_a_complement_to_hard_skills_which_refer_to_a_person_s_knowledge_and_occupational_skills"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:backgroundTint="#E6038FFD"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:text="@string/soft_skill"                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="25sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <GridLayout
+                            android:layout_width="392dp"
+                            android:layout_height="670dp"
+                            android:layout_marginTop="5dp"
+                            android:columnCount="2"
+                            android:rowCount="3"
+                            tools:ignore="UselessParent">
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="130dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_self_improvement_24"
+                                    android:contentDescription="@null"
+                                    tools:ignore="ImageContrastCheck" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:text="@string/self_motivation_skills"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry,TextContrastCheck" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="130dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_comminication_24"
+                                    android:contentDescription="@null"
+                                    tools:ignore="ImageContrastCheck" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:text="@string/communication_skills"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry,TextContrastCheck" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="130dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_self_management_24"
+                                    android:contentDescription="@null"
+                                    tools:ignore="ImageContrastCheck" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:text="@string/self_management_skill"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry,TextContrastCheck" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="130dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_customer_services_24"
+                                    android:contentDescription="@null"
+                                    tools:ignore="ImageContrastCheck" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:text="@string/customer_service_skill"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry,TextContrastCheck" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="130dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_computer_24"
+                                    android:contentDescription="@null"
+                                    tools:ignore="ImageContrastCheck" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:text="@string/computer_skill"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry,TextContrastCheck,TextContrastCheck" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="130dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_leadership_24"
+                                    android:contentDescription="@null"
+                                    tools:ignore="ImageContrastCheck" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:text="@string/leadership_skill"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry,TextContrastCheck" />
+                            </LinearLayout>
+                        </GridLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="195dp"
+                        android:background="@drawable/shape"
+                        android:backgroundTint="#E6038FFD"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:paddingLeft="10sp"
+                            android:paddingRight="10sp"
+                            android:textSize="20sp"
+                            android:textColor="@color/white"
+                            android:text="@string/this_includes_fundamental_knowledge_of_computing_fluency_in_a_programming_language_and_excellent_debugging_and_problem_solving_skills"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:text="@string/programming_skills"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="25sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="670dp"
+                            android:columnCount="2"
+                            android:rowCount="6"
+                            tools:ignore="UselessParent">
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="30dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="120dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_html_24"
+                                    android:contentDescription="@null" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/programming_skills_html_java_python"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="30dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="120dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_photoshop_24"
+                                    android:contentDescription="@null" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/photoshop_and_adobe_premier_pro"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="120dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_programming_24"
+                                    android:contentDescription="@null" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/knowledge_about_programming_languages"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="130dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_github_24"
+                                    android:contentDescription="@null" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/git_version_control_skills"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="180dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="120dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_andapp_24"
+                                    android:contentDescription="@null"
+                                    tools:ignore="ImageContrastCheck" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/android_app_development_skills"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="HardcodedText,RtlSymmetry" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="170dp"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/teal_200"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="130dp"
+                                    android:layout_height="120dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/ic_baseline_databases_24"
+                                    android:contentDescription="@null" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/database_and_sql"
+                                    android:textAlignment="center"
+                                    android:textSize="15sp"
+                                    tools:ignore="RtlSymmetry" />
+                            </LinearLayout>
+                        </GridLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+    </HorizontalScrollView>
+</FrameLayout>
