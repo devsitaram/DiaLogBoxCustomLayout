@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "PDD8TSdvJoiDCw66VYq5b1BbV6DEFchJ9BIevnwoxK0NINALSf0n5KSHpKR50XpDQKxuhk/BjVxqrj/5T0IbFA==",
+  "success": true,
+  "projectFilePath": "C:\\Documents\\Final Years\\.NET Application Development\\WebApi\\WebApi\\WebApi.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\fsharp.core\\8.0.100\\fsharp.core.8.0.100.nupkg.sha512"
+  ],
+  "logs": []
+}

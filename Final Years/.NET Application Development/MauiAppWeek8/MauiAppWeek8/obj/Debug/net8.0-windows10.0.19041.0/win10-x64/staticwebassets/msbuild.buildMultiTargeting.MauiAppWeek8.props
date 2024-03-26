@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MauiAppWeek8.props" />
+</Project>

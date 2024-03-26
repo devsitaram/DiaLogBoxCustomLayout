@@ -1,0 +1,34 @@
+﻿@page "/services"
+
+<h3>Services</h3>
+
+<div class="loader">
+	<div class="dot"></div>
+	<div class="dot"></div>
+	<div class="dot"></div>
+</div>
+
+<button @onclick="add">Add</button>
+<p>Result: @number</p>
+
+
+<button @onclick="multiply">Multiply</button>
+<p>Result: @multiplyValue</p>
+
+@code {
+
+	int number = 0;
+	int multiplyValue = 0;
+
+	void add()
+	{
+		number += 1;
+	}
+
+	void multiply()
+	{
+		multiplyValue = number * 2;
+
+	}
+
+}

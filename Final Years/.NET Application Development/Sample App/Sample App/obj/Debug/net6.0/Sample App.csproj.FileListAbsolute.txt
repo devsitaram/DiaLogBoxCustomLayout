@@ -1,0 +1,14 @@
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\bin\Debug\net6.0\Sample App.exe
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\bin\Debug\net6.0\Sample App.deps.json
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\bin\Debug\net6.0\Sample App.runtimeconfig.json
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\bin\Debug\net6.0\Sample App.dll
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\bin\Debug\net6.0\Sample App.pdb
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\Sample App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\Sample App.AssemblyInfoInputs.cache
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\Sample App.AssemblyInfo.cs
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\Sample App.csproj.CoreCompileInputs.cache
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\Sample App.dll
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\refint\Sample App.dll
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\Sample App.pdb
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\Sample App.genruntimeconfig.cache
+C:\Documents\Final Years\.NET Application Development\Sample App\Sample App\obj\Debug\net6.0\ref\Sample App.dll

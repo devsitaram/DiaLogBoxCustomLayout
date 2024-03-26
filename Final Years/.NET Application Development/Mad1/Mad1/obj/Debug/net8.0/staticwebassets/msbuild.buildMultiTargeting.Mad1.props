@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Mad1.props" />
+</Project>

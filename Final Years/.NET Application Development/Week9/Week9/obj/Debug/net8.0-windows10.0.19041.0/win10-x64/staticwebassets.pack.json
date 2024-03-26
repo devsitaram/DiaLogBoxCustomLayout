@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\Week9\\Week9\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Week9.styles.css",
+      "PackagePath": "staticwebassets\\Week9.styles.css"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\Week9\\Week9\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\Week9\\Week9\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\Week9\\Week9\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\Week9\\Week9\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\Week9\\Week9\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.Week9.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.build.Week9.props",
+      "PackagePath": "build\\Week9.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildMultiTargeting.Week9.props",
+      "PackagePath": "buildMultiTargeting\\Week9.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildTransitive.Week9.props",
+      "PackagePath": "buildTransitive\\Week9.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

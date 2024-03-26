@@ -1,0 +1,6 @@
+@Mad1_HostAddress = http://localhost:5003
+
+GET {{Mad1_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

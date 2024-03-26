@@ -1,0 +1,91 @@
+﻿@page "/todo"
+@*@using MauiAppWeek8.Models (not import there go to import the _Import.razer file)*@
+
+<h3>ToDo Compolent</h3>
+
+<EditForm Model="@todoModel">
+    <div>
+        <label class="form-label">Task</label>
+        <input class="form-control" @bind-value="todoModel.Task" />
+        <button class="btn btn-primary" @onclick="AddToDo">Save</button>
+    </div>
+</EditForm>
+
+<table>
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Task</td>
+            <td>Completed</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in todoList)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Task</td>
+                <td>@item.IsCompleted</td>
+                <td>
+                    @if (!item.IsCompleted)
+                    {
+                        <button class="btn btn-sm btn-warning" @onclick="() => CompletedTask(item.Id)">Completed</button>
+                    }
+                    <button class="btn btn-sm btn-info" @onclick="() => EditTodo(item.Id)">Edit</button>
+                    <button class="btn btn-sm btn-danger" @onclick="() => DeleteTask(item.Id)">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    public List<TodoModel> todoList = new();
+    public TodoModel todoModel = new();
+
+    public void AddToDo()
+    {
+        var todoTask = todoList.FirstOrDefault(x => x.Id == todoModel.Id);
+        if (todoTask != null && todoTask.Id != 0)
+        {
+            todoTask.Task = todoModel.Task;
+        }
+        else
+        {
+            todoModel.Id = todoList.Count + 1;
+            todoList.Add(todoModel);
+        }
+        todoModel = new();
+        // todoModel = new TodoModel();
+    }
+
+    public void CompletedTask(int id)
+    {
+        var taskToComplete = todoList.FirstOrDefault(x => x.Id == id);
+        if (taskToComplete != null)
+        {
+            taskToComplete.IsCompleted = true;
+        }
+    }
+
+    public void DeleteTask(int id)
+    {
+        var taskToDelete = todoList.FirstOrDefault(x => x.Id == id);
+        if (taskToDelete != null)
+        {
+            todoList.Remove(taskToDelete);
+        }
+    }
+
+    public void EditTodo(int ID)
+    {
+        var toEdit = todoList.Find(x => x.Id == ID);
+        if (toEdit != null)
+        {
+            todoModel.Id = toEdit.Id;
+            todoModel.Task = toEdit.Task;
+            todoModel.IsCompleted = toEdit.IsCompleted;
+        }
+    }
+}

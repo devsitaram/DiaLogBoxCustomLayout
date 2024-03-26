@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\MauiBlazerApp\\MauiBlazerApp\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\MauiBlazerApp.styles.css",
+      "PackagePath": "staticwebassets\\MauiBlazerApp.styles.css"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\MauiBlazerApp\\MauiBlazerApp\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\MauiBlazerApp\\MauiBlazerApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\MauiBlazerApp\\MauiBlazerApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\MauiBlazerApp\\MauiBlazerApp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Documents\\Final Years\\.NET Application Development\\MauiBlazerApp\\MauiBlazerApp\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-ios\\iossimulator-x64\\staticwebassets\\msbuild.MauiBlazerApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-ios\\iossimulator-x64\\staticwebassets\\msbuild.build.MauiBlazerApp.props",
+      "PackagePath": "build\\MauiBlazerApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-ios\\iossimulator-x64\\staticwebassets\\msbuild.buildMultiTargeting.MauiBlazerApp.props",
+      "PackagePath": "buildMultiTargeting\\MauiBlazerApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-ios\\iossimulator-x64\\staticwebassets\\msbuild.buildTransitive.MauiBlazerApp.props",
+      "PackagePath": "buildTransitive\\MauiBlazerApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
