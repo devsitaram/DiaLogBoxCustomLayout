@@ -10,17 +10,17 @@ namespace BisleriumBlog.Domain.Entities
         public int BlogId { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Required]
-        public string Content { get; set; }
+        public string? Content { get; set; }
 
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         public int VoteConut { get; set; }
 
         // Foreign key
-        public string UserId { get; set; }
-        public virtual User User { get; set; }
+        public string? UserId { get; set; }
+        public virtual User? User { get; set; }
     }
 }

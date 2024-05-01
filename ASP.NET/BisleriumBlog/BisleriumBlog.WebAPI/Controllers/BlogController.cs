@@ -25,9 +25,9 @@ namespace BisleriumBlog.WebAPI.Controllers
 
         [HttpGet]
         [Route("/api/all/blog")]
-        public async Task<ResponseBlog> GetBlogs()
+        public async Task<PeginatedResponseBlogDTOs> GetBlogs(int pageNumber = 1, int pageSize = 10)
         {
-            var result = await _blog.GetBlogs();
+            var result = await _blog.GetBlogs(pageNumber, pageSize);
             return result;
         }
 

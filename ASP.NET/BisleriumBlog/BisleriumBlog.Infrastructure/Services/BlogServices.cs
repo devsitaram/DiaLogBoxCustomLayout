@@ -1,5 +1,4 @@
 ﻿using BisleriumBlog.Application.Common.Interface;
-using BisleriumBlog.Application.DTOs.UserDTOs;
 using BisleriumBlog.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using BisleriumBlog.Infrastructure.Data;
@@ -58,25 +57,33 @@ namespace BisleriumBlog.Infrastructure.Services
             }
         }
 
-        // Get all blog
-        public async Task<ResponseBlog> GetBlogs()
+        // Get all blog with Peginated
+        public async Task<PeginatedResponseBlogDTOs> GetBlogs(int pageNumber, int pageSize)
         {
             try
             {
-                var allBlogs = await _context.Blogs
-                                              .Where(blog => !blog.IsDeleted)
-                                              .ToListAsync();
+                var totalBlogs = await _context.Blogs.Where(blog => !blog.IsDeleted).CountAsync();
+                var totalPages = (int)Math.Ceiling((double)totalBlogs / pageSize);
 
-                return new ResponseBlog
+                var blogs = await _context.Blogs
+                                          .Where(blog => !blog.IsDeleted)
+                                          .OrderByDescending(blog => blog.CreatedTime)
+                                          .Skip((pageNumber - 1) * pageSize)
+                                          .Take(pageSize)
+                                          .ToListAsync();
+
+                return new PeginatedResponseBlogDTOs
                 {
                     Status = true,
                     Message = "Blogs retrieved successfully!",
-                    Data = allBlogs // Returning all blogs where IsDeleted is false
+                    Data = blogs,
+                    TotalPages = totalPages,
+                    CurrentPage = pageNumber
                 };
             }
             catch (Exception ex)
             {
-                return new ResponseBlog
+                return new PeginatedResponseBlogDTOs
                 {
                     Status = false,
                     Message = $"Failed to retrieve blogs: {ex.Message}",
@@ -85,7 +92,6 @@ namespace BisleriumBlog.Infrastructure.Services
             }
         }
 
-       
         // Delete
         public async Task<ResponseBlog> DeleteBlogPost(int blogId)
         {
@@ -176,6 +182,5 @@ namespace BisleriumBlog.Infrastructure.Services
                 };
             }
         }
-
     }
 }
