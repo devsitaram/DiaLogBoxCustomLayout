@@ -17,6 +17,7 @@ namespace BisleriumBlog.Infrastructure.Data
             _dateTime = dateTime;
         }
 
+        //  add the entity
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<User> Users { get; set; }
 

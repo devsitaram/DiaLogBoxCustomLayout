@@ -160,7 +160,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 {
                     Id = userData.Id,
                     Email = userData.Email,
-                    UserName = userData.UserName,
+                    Username = userData.UserName,
                     PhoneNumber = userData.PhoneNumber,
                     Role = roles.FirstOrDefault()
                 });
@@ -168,48 +168,6 @@ namespace BisleriumBlog.Infrastructure.Services
 
             return userDetails;
         }
-
-        /*// Get all user details
-        [Authorize]
-        public async Task<IEnumerable<UserDetailsDTO>> GetUserDetails()
-        {
-            var users = await _userManager.Users.Select(x => new
-            {
-                x.Id,
-                x.Email,
-                x.UserName,
-                x.PhoneNumber,
-            }).ToListAsync();
-
-            var roles = await _userManager.GetRolesAsync(users);
-            // either
-            var userDetails = from userData in users
-                              select new UserDetailsDTO()
-                              {
-                                  Id = userData.Id,
-                                  Email = userData.Email,
-                                  UserName = userData.UserName,
-                                  PhoneNumber = userData.PhoneNumber
-                                   Role = roles.FirstOrDefault()
-                              };
-
-            // OR
-            var userDatas = new List<UserDetailsDTO>();
-            foreach (var  in users)
-            {
-                userDatas.Add(new UserDetailsDTO()
-                {
-                    Id = item.Id,item
-                    Email = item.Email,
-                    UserName = item.UserName,
-                    PhoneNumber = item.PhoneNumber,
-                    Role = roles.FirstOrDefault()
-
-                });
-            }
-
-            return userDetails; // userDatas;
-        }*/
 
 
         // Reset Password (Forgot Password)
@@ -248,7 +206,7 @@ namespace BisleriumBlog.Infrastructure.Services
             {
                 Id = userId,
                 Email = user.Email,
-                UserName = user.UserName,
+                Username = user.UserName,
                 PhoneNumber = user.PhoneNumber,
                 Role = roles.FirstOrDefault()
             };
@@ -262,14 +220,14 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Update user profile details 
-        public async Task<UserDetailsRespons> UpdateProfile(string userId, UserDetailsDTO model)
+        public async Task<UserDetailsRespons> UpdateProfile(UserDetailsDTO model)
         {
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _userManager.FindByIdAsync(model.Id);
             if (user == null)
                 return new UserDetailsRespons { Status = false, Message = "User not found!" };
 
             user.Email = model.Email;
-            user.UserName = model.UserName;
+            user.UserName = model.Username;
             user.PhoneNumber = model.PhoneNumber;
 
             var result = await _userManager.UpdateAsync(user);
@@ -278,10 +236,9 @@ namespace BisleriumBlog.Infrastructure.Services
             {
                 Id = user.Id,
                 Email = user.Email,
-                UserName = user.UserName,
+                Username = user.UserName,
                 PhoneNumber = user.PhoneNumber,
                 Role = model.Role
-
             };
 
             if (result.Succeeded)

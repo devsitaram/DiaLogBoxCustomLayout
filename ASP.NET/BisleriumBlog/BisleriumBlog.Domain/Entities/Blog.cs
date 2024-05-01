@@ -15,7 +15,6 @@ namespace BisleriumBlog.Domain.Entities
         [Required]
         public string Content { get; set; }
 
-        [Display(Name = "Image URL")]
         public string ImageUrl { get; set; }
 
         public int VoteConut { get; set; }

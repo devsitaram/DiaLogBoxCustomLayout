@@ -37,8 +37,8 @@ namespace BisleriumBlog.WebAPI.Controllers
 
         [HttpPatch]
         [AllowAnonymous]
-        [Route("/api/forgotPassword")]
-        public async Task<ResponseDTO> ForgotPassword([FromQuery] string email, string password)
+        [Route("/api/forgotpassword")]
+        public async Task<ResponseDTO> ForgotPassword(string email, string password)
         {
             var result = await _authenticationManager.ForgotPassword(email, password);
             return result;
@@ -56,9 +56,9 @@ namespace BisleriumBlog.WebAPI.Controllers
         // [Authorize]
         [HttpPatch]
         [Route("/api/update/profile")]
-        public async Task<ActionResult<UserDetailsRespons>> UpdateProfile(string userId, UserDetailsDTO model)
+        public async Task<ActionResult<UserDetailsRespons>> UpdateProfile(UserDetailsDTO model)
         {
-            var result = await _authenticationManager.UpdateProfile(userId, model);
+            var result = await _authenticationManager.UpdateProfile(model);
             return result;
         }
 

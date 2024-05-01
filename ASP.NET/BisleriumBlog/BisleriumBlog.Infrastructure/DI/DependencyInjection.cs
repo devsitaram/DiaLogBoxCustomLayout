@@ -38,8 +38,10 @@ namespace BisleriumBlog.Infrastructure.DI
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
+            // Inject interface and service class
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IAuthentication, AuthenticationService>();
+            services.AddTransient<IBlog, BlogServices>();
 
             return services;
         }

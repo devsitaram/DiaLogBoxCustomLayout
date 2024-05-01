@@ -4,7 +4,7 @@ namespace BisleriumBlog.Application.DTOs.UserDTOs
 {
     public class UserRegisterRequestDto
     {
-        [Required(ErrorMessage = "User Name is required")]
+        [Required(ErrorMessage = "Username is required")]
         public string? Username { get; set; }
 
         [EmailAddress]
