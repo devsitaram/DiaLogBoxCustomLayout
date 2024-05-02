@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BisleriumBlog.Application.Common.Interface;
+using BisleriumBlog.Application.Interface.Repository;
+using BisleriumBlog.Domain.Entities;
 using BisleriumBlog.Infrastructure.Data;
 using BisleriumBlog.Infrastructure.DI;
 using BisleriumBlog.Infrastructure.Services;
@@ -42,6 +44,7 @@ namespace BisleriumBlog.Infrastructure.DI
             services.AddTransient<IDateTime, DateTimeService>();
             services.AddTransient<IAuthentication, AuthenticationService>();
             services.AddTransient<IBlog, BlogServices>();
+            services.AddTransient<IComment, CommentServices>();
 
             return services;
         }

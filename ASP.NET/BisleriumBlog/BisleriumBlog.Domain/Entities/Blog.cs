@@ -17,7 +17,7 @@ namespace BisleriumBlog.Domain.Entities
 
         public string? ImageUrl { get; set; }
 
-        public int VoteConut { get; set; }
+        public int PopularBlog { get; set; }
 
         // Foreign key
         public string? UserId { get; set; }

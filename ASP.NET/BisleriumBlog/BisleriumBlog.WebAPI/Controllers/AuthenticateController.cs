@@ -1,7 +1,5 @@
 ﻿using BisleriumBlog.Application.Common.Interface;
-using BisleriumBlog.Application.DTOs;
 using BisleriumBlog.Application.DTOs.UserDTOs;
-using BisleriumBlog.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -56,7 +54,7 @@ namespace BisleriumBlog.WebAPI.Controllers
         // [Authorize]
         [HttpPatch]
         [Route("/api/update/profile")]
-        public async Task<ActionResult<UserDetailsRespons>> UpdateProfile(UserDetailsDTO model)
+        public async Task<ActionResult<UserDetailsRespons>> UpdateProfile([FromBody] UserDetailsDTO model)
         {
             var result = await _authenticationManager.UpdateProfile(model);
             return result;
@@ -67,6 +65,14 @@ namespace BisleriumBlog.WebAPI.Controllers
         public async Task<IEnumerable<UserDetailsDTO>> GetUserDetails()
         {
             var result = await _authenticationManager.GetUserDetails();
+            return result;
+        }
+
+        [HttpPatch]
+        [Route("/api/update/user/role")]
+        public async Task<UserDetailsRespons> UpdateRole([FromQuery] string userId, [FromQuery] string userRole)
+        {
+            var result = await _authenticationManager.UpdateRole(userId, userRole);
             return result;
         }
     }

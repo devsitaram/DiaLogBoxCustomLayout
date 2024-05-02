@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.Data;
 using BisleriumBlog.Domain.Entities;
@@ -30,58 +29,44 @@ namespace BisleriumBlog.Infrastructure.Services
             _roleManager = roleManager;
         }
 
+
         // Register
         public async Task<ResponseDTO> Register(UserRegisterRequestDto model)
         {
-            var userExists = await _userManager.FindByNameAsync(model.Username);
-            if (userExists != null)
-                return new ResponseDTO { Status = false, Message = "User already exists!" };
+            try
+            { 
+                var userExists = await _userManager.FindByNameAsync(model.Username);
+                if (userExists != null)
+                    return new ResponseDTO { Status = false, Message = "User already exists!" };
 
-            User user = new()
-            {
-                Email = model.Email,
-                SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = model.Username,
-            };
-
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (!result.Succeeded)
-                return new ResponseDTO
-                    { Status = false, Message = "Enter the valid username password. Please check user details and try again." };
-
-            // Assigning a role to the user
-            if (!await _roleManager.RoleExistsAsync("Blogger"))
-                await _roleManager.CreateAsync(new IdentityRole("Blogger"));
-
-            await _userManager.AddToRoleAsync(user, "Blogger");
-
-            return new ResponseDTO { Status = true, Message = "User created successfully!" };
-        }
-
-        // Login User
-        public async Task<LoginResponseDTO> Login(UserLoginRequestDTO model)
-        {
-
-            var user = await _userManager.FindByNameAsync(model.Username);
-            var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, true, false);
-
-            if (result.Succeeded)
-            {
-                var token = await CreateJwtAccessToken(user);
-
-                return new LoginResponseDTO()
+                User user = new()
                 {
-                    Message = "Login successful",
-                    Status = true,
-                    AccessToken = token
+                    Email = model.Email,
+                    SecurityStamp = Guid.NewGuid().ToString(),
+                    UserName = model.Username,
+                };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+                if (!result.Succeeded)
+                    return new ResponseDTO
+                        { Status = false, Message = "Enter the valid username password. Please check user details and try again." };
+
+                // Assigning a role to the user
+                if (!await _roleManager.RoleExistsAsync("Blogger"))
+                    await _roleManager.CreateAsync(new IdentityRole("Blogger"));
+
+                await _userManager.AddToRoleAsync(user, "Blogger");
+
+                return new ResponseDTO { Status = true, Message = "User created successfully!" };
+            }
+            catch
+            {
+                return new ResponseDTO
+                {
+                    Status = false,
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
                 };
             }
-
-            return new LoginResponseDTO()
-            {
-                Message = "User login failed! Please check user details and try again!",
-                Status = false
-            };
         }
 
         // Generate the JWT token
@@ -137,6 +122,42 @@ namespace BisleriumBlog.Infrastructure.Services
             return tokenOptions;
         }
 
+        // Login User
+        public async Task<LoginResponseDTO> Login(UserLoginRequestDTO model)
+        {
+            try
+            {
+                var user = await _userManager.FindByNameAsync(model.Username);
+                var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, true, false);
+
+                if (result.Succeeded)
+                {
+                    var token = await CreateJwtAccessToken(user);
+
+                    return new LoginResponseDTO()
+                    {
+                        Message = "Login successful",
+                        Status = true,
+                        AccessToken = token
+                    };
+                }
+
+                return new LoginResponseDTO()
+                {
+                    Message = "User login failed! Please check user details and try again!",
+                    Status = false
+                };
+            }
+            catch
+            {
+                return new LoginResponseDTO
+                {
+                    Status = false,
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                };
+            }
+        }
+
         // Get all user details
         [Authorize]
         public async Task<IEnumerable<UserDetailsDTO>> GetUserDetails()
@@ -169,93 +190,198 @@ namespace BisleriumBlog.Infrastructure.Services
             return userDetails;
         }
 
-
         // Reset Password (Forgot Password)
         public async Task<ResponseDTO> ForgotPassword(string email, string newPassword)
         {
-            var user = await _userManager.FindByEmailAsync(email);
-            if (user == null)
-                return new ResponseDTO { Status = false, Message = "User not found!" };
+            try
+            {
 
-            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
-            if (!result.Succeeded)
-                return new ResponseDTO { Status = false, Message = "Invalid your password!" };
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user == null)
+                    return new ResponseDTO { Status = false, Message = "User not found!" };
 
-            return new ResponseDTO { Status = true, Message = "Password reset successfully!" };
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
+                if (!result.Succeeded)
+                    return new ResponseDTO { Status = false, Message = "Invalid your password!" };
+
+                return new ResponseDTO { Status = true, Message = "Password reset successfully!" };
+            }
+            catch
+            {
+                return new ResponseDTO
+                {
+                    Status = false,
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                };
+            }
         }
 
         // Get Profile details
         public async Task<UserDetailsRespons> GetUserProfile(string userId)
         {
+            try
+            { 
+                var user = await _userManager.FindByIdAsync(userId);
 
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user == null)
-            {
-                return new UserDetailsRespons
+                if (user == null)
                 {
-                    Status = false,
-                    Message = "Invalid user profile!",
+                    return new UserDetailsRespons
+                    {
+                        Status = false,
+                        Message = "Invalid user profile!",
+                    };
+                }
+
+                var roles = await _userManager.GetRolesAsync(user);
+
+                var userDetails = new UserDetailsDTO()
+                {
+                    Id = userId,
+                    Email = user.Email,
+                    Username = user.UserName,
+                    PhoneNumber = user.PhoneNumber,
+                    Role = roles.FirstOrDefault()
                 };
-            }
 
-            var roles = await _userManager.GetRolesAsync(user);
-
-            var userDetails = new UserDetailsDTO()
-            {
-                Id = userId,
-                Email = user.Email,
-                Username = user.UserName,
-                PhoneNumber = user.PhoneNumber,
-                Role = roles.FirstOrDefault()
-            };
-
-             return new UserDetailsRespons
-            {
-                Status = true,
-                Message = "User profile",
-                UserDetails = userDetails
-            };
-        }
-
-        // Update user profile details 
-        public async Task<UserDetailsRespons> UpdateProfile(UserDetailsDTO model)
-        {
-            var user = await _userManager.FindByIdAsync(model.Id);
-            if (user == null)
-                return new UserDetailsRespons { Status = false, Message = "User not found!" };
-
-            user.Email = model.Email;
-            user.UserName = model.Username;
-            user.PhoneNumber = model.PhoneNumber;
-
-            var result = await _userManager.UpdateAsync(user);
-
-            var userDetails = new UserDetailsDTO
-            {
-                Id = user.Id,
-                Email = user.Email,
-                Username = user.UserName,
-                PhoneNumber = user.PhoneNumber,
-                Role = model.Role
-            };
-
-            if (result.Succeeded)
-            {
-                return new UserDetailsRespons
+                 return new UserDetailsRespons
                 {
                     Status = true,
-                    Message = "Profile updated successfully!",
+                    Message = "User profile",
                     UserDetails = userDetails
                 };
             }
-            else
+            catch
             {
                 return new UserDetailsRespons
                 {
                     Status = false,
-                    Message = "Failed to update profile!",
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                };
+            }
+        }
+
+        // Update user profile details
+        public async Task<UserDetailsRespons> UpdateProfile(UserDetailsDTO model)
+        {
+            try { 
+                var user = await _userManager.FindByIdAsync(model.Id);
+                if (user == null)
+                    return new UserDetailsRespons { Status = false, Message = "User not found!" };
+
+                user.Email = model.Email;
+                user.UserName = model.Username;
+                user.PhoneNumber = model.PhoneNumber;
+
+                var result = await _userManager.UpdateAsync(user);
+
+                var userDetails = new UserDetailsDTO
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    Username = user.UserName,
+                    PhoneNumber = user.PhoneNumber,
+                    Role = model.Role
+                };
+
+                if (result.Succeeded)
+                {
+                    return new UserDetailsRespons
+                    {
+                        Status = true,
+                        Message = "Profile updated successfully!",
+                        UserDetails = userDetails
+                    };
+                }
+                else
+                {
+                    return new UserDetailsRespons
+                    {
+                        Status = false,
+                        Message = "Failed to update profile!",
+                    };
+                }
+            }
+            catch
+            {
+                return new UserDetailsRespons
+                {
+                    Status = false,
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                };
+            }
+        }
+
+        // Update Profile details
+        public async Task<UserDetailsRespons> UpdateRole(string userId, string userRole)
+        {
+            try
+            {
+                var user = await _userManager.FindByIdAsync(userId);
+
+                if (user == null)
+                {
+                    return new UserDetailsRespons
+                    {
+                        Status = false,
+                        Message = "Invalid user!",
+                    };
+                }
+
+                // Check if the role exists
+                if (!await _roleManager.RoleExistsAsync(userRole))
+                {
+                    // Role doesn't exist, create it
+                    var roleResult = await _roleManager.CreateAsync(new IdentityRole(userRole));
+                    if (!roleResult.Succeeded)
+                    {
+                        return new UserDetailsRespons
+                        {
+                            Status = false,
+                            Message = "Failed to create role!",
+                        };
+                    }
+                }
+
+                // Remove existing roles
+                var existingRoles = await _userManager.GetRolesAsync(user);
+                await _userManager.RemoveFromRolesAsync(user, existingRoles.ToArray());
+
+                // Add new role
+                var addToRoleResult = await _userManager.AddToRoleAsync(user, userRole);
+                if (!addToRoleResult.Succeeded)
+                {
+                    return new UserDetailsRespons
+                    {
+                        Status = false,
+                        Message = "Failed to update user role!",
+                    };
+                }
+
+                var roles = await _userManager.GetRolesAsync(user);
+
+                var userDetails = new UserDetailsDTO()
+                {
+                    Id = userId,
+                    Email = user.Email,
+                    Username = user.UserName,
+                    PhoneNumber = user.PhoneNumber,
+                    Role = roles.FirstOrDefault()
+                };
+
+                return new UserDetailsRespons
+                {
+                    Status = true,
+                    Message = "Update user Role",
+                    UserDetails = userDetails
+                };
+            }
+            catch
+            {
+                return new UserDetailsRespons
+                {
+                    Status = false,
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
                 };
             }
         }
