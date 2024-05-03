@@ -54,54 +54,55 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Get all comments by blog id
-        // Function to get all comments by blog id
         public async Task<ResponseComments> GetComment(int Id)
         {
-            /*try
-            {*/
-            if (Id <= 0)
+            try
+            {
+                if (Id <= 0)
+                {
+                    return new ResponseComments
+                    {
+                        Status = false,
+                        Message = "Invalid Id",
+                        Data = null
+                    };
+                }
+
+                int blogId = Convert.ToInt32(Id);
+                // Query to get all comments for the specified BlogId
+                var allComments = await _context.Comment
+                                                 .Where(comment => comment.BlogId == blogId && !comment.IsDeleted)
+                                                 .ToListAsync();
+
+                if (allComments.Count == 0)
+                {
+                    return new ResponseComments
+                    {
+                        Status = true,
+                        Message = "No comments found",
+                        Data = allComments
+                    };
+                }
+
+                return new ResponseComments
+                {
+                    Status = true,
+                    Message = "Success",
+                    Data = allComments
+                };
+
+            }
+            catch
             {
                 return new ResponseComments
                 {
                     Status = false,
-                    Message = "Invalid Id",
+                    Message = $"Sorry, something went wrong on our end. Please try again later. {Id}",
                     Data = null
                 };
             }
-
-            int blogId = Convert.ToInt32(Id);
-            // Query to get all comments for the specified BlogId
-            var allComments = await _context.Comment
-                                             .Where(comment => comment.BlogId == blogId && !comment.IsDeleted)
-                                             .ToListAsync();
-
-            if (allComments.Count == 0)
-            {
-                return new ResponseComments
-                {
-                    Status = true,
-                    Message = "No comments found",
-                    Data = allComments
-                };
-            }
-
-            return new ResponseComments
-            {
-                Status = true,
-                Message = "Success",
-                Data = allComments
-            };
-            /* }
-             catch
-             {
-                 return new ResponseComments
-                 {
-                     Status = false,
-                     Message = $"Sorry, something went wrong on our end. Please try again later. {Id}",
-                     Data = null
-                 };
-             }*/
         }
+
         /*public async Task<ResponseComments> GetComment(int Id)
         {
             try
