@@ -54,7 +54,7 @@ namespace BisleriumBlog.WebAPI.Controllers
         // [Authorize]
         [HttpPatch]
         [Route("/api/update/profile")]
-        public async Task<ActionResult<UserDetailsRespons>> UpdateProfile([FromBody] UserDetailsDTO model)
+        public async Task<ActionResult<UserDetailsRespons>> UpdateProfile([FromBody] UserDTO model)
         {
             var result = await _authenticationManager.UpdateProfile(model);
             return result;
@@ -62,7 +62,7 @@ namespace BisleriumBlog.WebAPI.Controllers
 
         [HttpGet]
         [Route("/api/authenticate/getUserDetails")]
-        public async Task<IEnumerable<UserDetailsDTO>> GetUserDetails()
+        public async Task<IEnumerable<UserDTO>> GetUserDetails()
         {
             var result = await _authenticationManager.GetUserDetails();
             return result;

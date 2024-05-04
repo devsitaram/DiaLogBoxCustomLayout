@@ -159,8 +159,8 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Get all user details
-        [Authorize]
-        public async Task<IEnumerable<UserDetailsDTO>> GetUserDetails()
+        // [Authorize]
+        public async Task<IEnumerable<UserDTO>> GetUserDetails()
         {
             var users = await _userManager.Users.Select(x => new
             {
@@ -170,14 +170,14 @@ namespace BisleriumBlog.Infrastructure.Services
                 x.PhoneNumber,
             }).ToListAsync();
 
-            var userDetails = new List<UserDetailsDTO>();
+            var userDetails = new List<UserDTO>();
 
             foreach (var userData in users)
             {
                 var user = await _userManager.FindByIdAsync(userData.Id);
                 var roles = await _userManager.GetRolesAsync(user);
 
-                userDetails.Add(new UserDetailsDTO()
+                userDetails.Add(new UserDTO()
                 {
                     Id = userData.Id,
                     Email = userData.Email,
@@ -235,7 +235,7 @@ namespace BisleriumBlog.Infrastructure.Services
 
                 var roles = await _userManager.GetRolesAsync(user);
 
-                var userDetails = new UserDetailsDTO()
+                var userDetails = new UserDTO()
                 {
                     Id = userId,
                     Email = user.Email,
@@ -262,7 +262,7 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Update user profile details
-        public async Task<UserDetailsRespons> UpdateProfile(UserDetailsDTO model)
+        public async Task<UserDetailsRespons> UpdateProfile(UserDTO model)
         {
             try { 
                 var user = await _userManager.FindByIdAsync(model.Id);
@@ -275,7 +275,7 @@ namespace BisleriumBlog.Infrastructure.Services
 
                 var result = await _userManager.UpdateAsync(user);
 
-                var userDetails = new UserDetailsDTO
+                var userDetails = new UserDTO
                 {
                     Id = user.Id,
                     Email = user.Email,
@@ -360,7 +360,7 @@ namespace BisleriumBlog.Infrastructure.Services
 
                 var roles = await _userManager.GetRolesAsync(user);
 
-                var userDetails = new UserDetailsDTO()
+                var userDetails = new UserDTO()
                 {
                     Id = userId,
                     Email = user.Email,

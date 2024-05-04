@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using BisleriumBlog.Infrastructure.Data;
 using BisleriumBlog.Application.DTOs.BlogDTOs;
 using System.Data;
+using BisleriumBlog.Application.DTOs.CommentDTOs;
+using BisleriumBlog.Application.DTOs.UserDTOs;
 
 namespace BisleriumBlog.Infrastructure.Services
 {
@@ -51,7 +53,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = $"Failed to create blog post: {ex.Message}. Inner exception: {ex.InnerException?.Message}",
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
                     Data = null
                 };
             }
@@ -60,23 +62,89 @@ namespace BisleriumBlog.Infrastructure.Services
         // Get all blog with Peginated
         public async Task<PeginatedResponseBlogDTOs> GetBlogs(int pageNumber, int pageSize)
         {
+            //try
+            //{
+            //    var totalBlogs = await _context.Blogs.Where(blog => !blog.IsDeleted).CountAsync();
+            //    var totalPages = (int)Math.Ceiling((double)totalBlogs / pageSize);
+
+            //    var blogs = await _context.Blogs
+            //                              .Where(blog => !blog.IsDeleted)
+            //                              .OrderByDescending(blog => blog.CreatedTime)
+            //                              .Skip((pageNumber - 1) * pageSize)
+            //                              .Take(pageSize)
+            //                              .ToListAsync();
+
+            //    //var blogId = 1;
+            //    var comment = await _context.Comment.Where(comment => comment.BlogId == blogId && !comment.IsDeleted).ToListAsync();
+
+            //    return new PeginatedResponseBlogDTOs
+            //    {
+            //        Status = true,
+            //        Message = "Blogs retrieved successfully!",
+            //        BlogComment = ??,
+            //        TotalPages = totalPages,
+            //        CurrentPage = pageNumber
+            //    };
+            //}
             try
             {
                 var totalBlogs = await _context.Blogs.Where(blog => !blog.IsDeleted).CountAsync();
                 var totalPages = (int)Math.Ceiling((double)totalBlogs / pageSize);
 
-                var blogs = await _context.Blogs
-                                          .Where(blog => !blog.IsDeleted)
-                                          .OrderByDescending(blog => blog.CreatedTime)
-                                          .Skip((pageNumber - 1) * pageSize)
-                                          .Take(pageSize)
-                                          .ToListAsync();
+                var pagedBlogs = await _context.Blogs
+                    .Where(blog => !blog.IsDeleted)
+                    .OrderByDescending(blog => blog.CreatedTime)
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .Select(blog => new BlogDTO
+                    {
+                        BlogId = blog.BlogId,
+                        Title = blog.Title,
+                        Content = blog.Content,
+                        ImageUrl = blog.ImageUrl,
+                        PopularBlog = blog.PopularBlog,
+                        LastModifiedTime = blog.LastModifiedTime,
+                        CreatedBy = blog.CreatedBy,
+                        ModifiedBy = blog.ModifiedBy,
+                        CommentDTOs = _context.Comment
+                            .Where(comment => comment.BlogId == blog.BlogId && !comment.IsDeleted)
+                            .Select(comment => new CommentDTO
+                            {
+                                Id = comment.Id,
+                                Comments = comment.Comments,
+                                PopularComments = comment.PopularComments,
+                                CreatedTime = comment.CreatedTime,
+                                UserDTO = _context.Users
+                                    .Where(user => comment.UserId == user.Id)
+                                    .Select(user => new UserDTO
+                                    {
+                                        Id = user.Id,
+                                        Username = user.UserName,
+                                        Email = user.Email,
+                                        PhoneNumber = user.PhoneNumber,
+                                        Role = "Blogger"
+                                    }).FirstOrDefault()
+                            })
+                            .ToList(),
+                        UserDTO = _context.Users
+                        .Where(user => blog.UserId == user.Id)
+                        .Select(user => new UserDTO
+                        {
+                            Id = user.Id,
+                            Username = user.UserName,
+                            Email = user.Email,
+                            PhoneNumber = user.PhoneNumber,
+                            Role = "Blogger"
+
+                        }).FirstOrDefault()
+                    })
+                    .ToListAsync();
 
                 return new PeginatedResponseBlogDTOs
                 {
                     Status = true,
                     Message = "Blogs retrieved successfully!",
-                    Data = blogs,
+                    BlogComment = pagedBlogs,
                     TotalPages = totalPages,
                     CurrentPage = pageNumber
                 };
@@ -86,8 +154,8 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new PeginatedResponseBlogDTOs
                 {
                     Status = false,
-                    Message = $"Failed to retrieve blogs: {ex.Message}",
-                    Data = null
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                    BlogComment = null
                 };
             }
         }
@@ -131,7 +199,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = $"Failed to delete blog post: {ex.Message}. Inner exception: {ex.InnerException?.Message}",
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
                     Data = null
                 };
             }
@@ -177,7 +245,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = $"Failed to update blog post: {ex.Message}. Inner exception: {ex.InnerException?.Message}",
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
                     Data = null
                 };
             }

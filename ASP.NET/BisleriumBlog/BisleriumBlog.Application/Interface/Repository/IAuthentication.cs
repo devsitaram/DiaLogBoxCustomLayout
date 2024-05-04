@@ -8,8 +8,8 @@ namespace BisleriumBlog.Application.Common.Interface
         Task<LoginResponseDTO> Login(UserLoginRequestDTO model);
         Task<ResponseDTO> ForgotPassword(string email, string password);
         Task<UserDetailsRespons> GetUserProfile(string userId);
-        Task<UserDetailsRespons> UpdateProfile(UserDetailsDTO model);
-        Task<IEnumerable<UserDetailsDTO>> GetUserDetails();
+        Task<UserDetailsRespons> UpdateProfile(UserDTO model);
+        Task<IEnumerable<UserDTO>> GetUserDetails();
         Task<UserDetailsRespons> UpdateRole(string userId, string userRole);
     }
 }

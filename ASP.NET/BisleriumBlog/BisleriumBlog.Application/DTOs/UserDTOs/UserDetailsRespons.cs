@@ -10,6 +10,6 @@ namespace BisleriumBlog.Application.DTOs.UserDTOs
     {
         public bool? Status { get; set; }
         public string? Message { get; set; }
-        public UserDetailsDTO? UserDetails { get; set; }
+        public UserDTO? UserDetails { get; set; }
     }
 }
