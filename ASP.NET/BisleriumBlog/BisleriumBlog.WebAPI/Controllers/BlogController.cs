@@ -1,5 +1,6 @@
 ﻿using BisleriumBlog.Application.Common.Interface;
 using BisleriumBlog.Application.DTOs.BlogDTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BisleriumBlog.WebAPI.Controllers
@@ -25,6 +26,7 @@ namespace BisleriumBlog.WebAPI.Controllers
             return result;
         }
 
+        [Authorize]
         [HttpPost]
         [Route("/api/image/post")]
         public async Task<string> UploadImage([FromForm] UploadFileDTO model)

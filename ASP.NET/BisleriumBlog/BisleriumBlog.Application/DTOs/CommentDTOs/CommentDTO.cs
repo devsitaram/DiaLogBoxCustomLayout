@@ -1,5 +1,4 @@
 ﻿using BisleriumBlog.Application.DTOs.UserDTOs;
-using BisleriumBlog.Domain.Shared;
 
 namespace BisleriumBlog.Application.DTOs.CommentDTOs
 {

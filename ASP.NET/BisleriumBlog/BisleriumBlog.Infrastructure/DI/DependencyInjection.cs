@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using BisleriumBlog.Application.Common.Interface;
 using BisleriumBlog.Application.Interface.Repository;
 using BisleriumBlog.Domain.Entities;
 using BisleriumBlog.Infrastructure.Data;
-using BisleriumBlog.Infrastructure.DI;
 using BisleriumBlog.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BisleriumBlog.Infrastructure.DI
@@ -23,7 +17,6 @@ namespace BisleriumBlog.Infrastructure.DI
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("AppConnectionString"),
                 b => b.MigrationsAssembly("BisleriumBlog.Infrastructure")),
@@ -45,10 +38,10 @@ namespace BisleriumBlog.Infrastructure.DI
             services.AddTransient<IAuthentication, AuthenticationService>();
             services.AddTransient<IBlog, BlogServices>();
             services.AddTransient<IComment, CommentServices>();
+            services.AddTransient<ICommentVote, CommentVoteServices>();
 
             return services;
         }
-
 
         public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
         {

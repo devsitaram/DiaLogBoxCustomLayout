@@ -195,7 +195,6 @@ namespace BisleriumBlog.Infrastructure.Services
         {
             try
             {
-
                 var user = await _userManager.FindByEmailAsync(email);
                 if (user == null)
                     return new ResponseDTO { Status = false, Message = "User not found!" };

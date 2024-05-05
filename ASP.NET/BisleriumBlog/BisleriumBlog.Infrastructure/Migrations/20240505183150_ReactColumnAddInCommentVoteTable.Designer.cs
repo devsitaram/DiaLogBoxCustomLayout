@@ -4,6 +4,7 @@ using BisleriumBlog.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BisleriumBlog.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240505183150_ReactColumnAddInCommentVoteTable")]
+    partial class ReactColumnAddInCommentVoteTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,7 +142,7 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CommentId")
+                    b.Property<int?>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("CreatedBy")
@@ -160,14 +163,17 @@ namespace BisleriumBlog.Infrastructure.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("IsReact")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("LastModifiedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("OldVote")
-                        .HasColumnType("int");
+                    b.Property<string>("OldVote")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("UpVote")
                         .HasColumnType("int");
@@ -177,7 +183,7 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CommentId");
+                    b.HasIndex("BlogId");
 
                     b.HasIndex("UserId");
 
@@ -438,16 +444,16 @@ namespace BisleriumBlog.Infrastructure.Migrations
                         {
                             Id = "02174cf0–9412–4cfe-afbf-59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4176e008-0d21-4aae-a70b-346f83ea7886",
+                            ConcurrencyStamp = "eabd0987-4877-44e8-aa5e-c092f507d779",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEP3IAQtAUO1LG9hTCP5xEYVdmICW9AnnlgyZSdX1zWvX3SpTdcPdgV9p8o7F4O7N5g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECeW0HVtWAd62tbK3g0Y4fLhNlRXYnJo0fas+Rg3ArXowm/qPRSjwRXmTuegcUlz8Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "25e8c1d8-7f3f-4699-aa31-541d8176aecb",
+                            SecurityStamp = "b0d1a2fe-1e93-4112-bdd3-cadba7e19b47",
                             TwoFactorEnabled = false,
                             UserName = "admin",
-                            CreatedTime = new DateTime(2024, 5, 6, 3, 35, 40, 312, DateTimeKind.Local).AddTicks(5844),
+                            CreatedTime = new DateTime(2024, 5, 6, 0, 16, 50, 413, DateTimeKind.Local).AddTicks(4211),
                             IsDeleted = false
                         });
                 });
@@ -478,15 +484,15 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
             modelBuilder.Entity("BisleriumBlog.Domain.Entities.CommentVote", b =>
                 {
-                    b.HasOne("BisleriumBlog.Domain.Entities.Comment", "Comment")
+                    b.HasOne("BisleriumBlog.Domain.Entities.Blog", "Blog")
                         .WithMany()
-                        .HasForeignKey("CommentId");
+                        .HasForeignKey("BlogId");
 
                     b.HasOne("BisleriumBlog.Domain.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("Comment");
+                    b.Navigation("Blog");
 
                     b.Navigation("User");
                 });

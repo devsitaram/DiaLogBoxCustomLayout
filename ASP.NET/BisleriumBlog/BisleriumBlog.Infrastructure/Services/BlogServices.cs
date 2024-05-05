@@ -34,32 +34,31 @@ namespace BisleriumBlog.Infrastructure.Services
                     IsDeleted = false
                 };
 
+                // Data save in database
                 _context.Blogs.Add(blog);
                 await _context.SaveChangesAsync();
 
-                var allBlogs = await _context.Blogs
-                                              .Where(blog => !blog.IsDeleted)
-                                              .ToListAsync();
+                //var allBlogs = await _context.Blogs
+                //                              .Where(blog => !blog.IsDeleted)
+                //                              .ToListAsync();
 
                 return new ResponseBlog
                 {
                     Status = true,
                     Message = "Blog post created successfully!",
-                    Data = allBlogs // Returning all blogs
                 };
             }
-            catch (Exception ex)
+            catch
             {
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
-                    Data = null
+                    Message = "Sorry, something went wrong on our end. Please try again later."
                 };
             }
         }
 
-        // Get all blog with Peginated
+        // Get all blog with peginated
         public async Task<PeginatedResponseBlogDTOs> GetBlogs(int pageNumber, int pageSize)
         {
             try
@@ -125,13 +124,12 @@ namespace BisleriumBlog.Infrastructure.Services
                     CurrentPage = pageNumber
                 };
             }
-            catch (Exception ex)
+            catch
             {
                 return new PeginatedResponseBlogDTOs
                 {
                     Status = false,
-                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
-                    BlogComment = null
+                    Message = "Sorry, something went wrong on our end. Please try again later."
                 };
             }
         }
@@ -148,35 +146,33 @@ namespace BisleriumBlog.Infrastructure.Services
                     return new ResponseBlog
                     {
                         Status = false,
-                        Message = "Blog post not found!",
-                        Data = null
+                        Message = "Blog post not found!"
                     };
                 }
 
+                // update data
                 blog.IsDeleted = true;
                 blog.DeletedTime = DateTime.Now;
                 blog.DeletedBy = Guid.NewGuid();
 
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); // saved in database
 
-                var allBlogs = await _context.Blogs
-                                              .Where(b => !b.IsDeleted)
-                                              .ToListAsync();
+                //var allBlogs = await _context.Blogs
+                //                              .Where(b => !b.IsDeleted)
+                //                              .ToListAsync();
 
                 return new ResponseBlog
                 {
                     Status = true,
                     Message = "Blog is successfully deleted!",
-                    // Data = allBlogs // Returning all undeleted blogs
                 };
             }
-            catch (Exception ex)
+            catch
             {
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
-                    Data = null
+                    Message = "Sorry, something went wrong on our end. Please try again later."
                 };
             }
         }
@@ -193,8 +189,7 @@ namespace BisleriumBlog.Infrastructure.Services
                     return new ResponseBlog
                     {
                         Status = false,
-                        Message = "Blog is not found!",
-                        Data = null
+                        Message = "Blog is not found!"
                     };
                 }
 
@@ -209,24 +204,22 @@ namespace BisleriumBlog.Infrastructure.Services
 
                 await _context.SaveChangesAsync();
 
-                var allBlogs = await _context.Blogs
-                                              .Where(b => !b.IsDeleted)
-                                              .ToListAsync();
+                //var allBlogs = await _context.Blogs
+                //                              .Where(b => !b.IsDeleted)
+                //                              .ToListAsync();
 
                 return new ResponseBlog
                 {
                     Status = true,
-                    Message = "Blog is successfully Updated!",
-                    Data = allBlogs // Returning all undeleted blogs
+                    Message = "Blog is successfully Updated!"
                 };
             }
-            catch (Exception ex)
+            catch
             {
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
-                    Data = null
+                    Message = "Sorry, something went wrong on our end. Please try again later.",
                 };
             }
         }

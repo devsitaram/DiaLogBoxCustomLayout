@@ -4,6 +4,7 @@ using BisleriumBlog.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BisleriumBlog.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240505173827_InitialNewCommentVoteTable")]
+    partial class InitialNewCommentVoteTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,7 +142,7 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CommentId")
+                    b.Property<int?>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<Guid?>("CreatedBy")
@@ -166,8 +169,8 @@ namespace BisleriumBlog.Infrastructure.Migrations
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int?>("OldVote")
-                        .HasColumnType("int");
+                    b.Property<string>("OldVote")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("UpVote")
                         .HasColumnType("int");
@@ -177,7 +180,7 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CommentId");
+                    b.HasIndex("BlogId");
 
                     b.HasIndex("UserId");
 
@@ -438,16 +441,16 @@ namespace BisleriumBlog.Infrastructure.Migrations
                         {
                             Id = "02174cf0–9412–4cfe-afbf-59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4176e008-0d21-4aae-a70b-346f83ea7886",
+                            ConcurrencyStamp = "22ba68b5-3f21-42a8-a3ae-3ca99e13abb9",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEP3IAQtAUO1LG9hTCP5xEYVdmICW9AnnlgyZSdX1zWvX3SpTdcPdgV9p8o7F4O7N5g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECsHanoauUtSiDeY5CZhzf86l7P/4DioOgh+SMIlSok0V7leaj6X5t+kxcyqTgx8pg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "25e8c1d8-7f3f-4699-aa31-541d8176aecb",
+                            SecurityStamp = "9034c24b-7a2e-40a3-b0f0-ffed3829fb31",
                             TwoFactorEnabled = false,
                             UserName = "admin",
-                            CreatedTime = new DateTime(2024, 5, 6, 3, 35, 40, 312, DateTimeKind.Local).AddTicks(5844),
+                            CreatedTime = new DateTime(2024, 5, 5, 23, 23, 26, 547, DateTimeKind.Local).AddTicks(9765),
                             IsDeleted = false
                         });
                 });
@@ -478,15 +481,15 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
             modelBuilder.Entity("BisleriumBlog.Domain.Entities.CommentVote", b =>
                 {
-                    b.HasOne("BisleriumBlog.Domain.Entities.Comment", "Comment")
+                    b.HasOne("BisleriumBlog.Domain.Entities.Blog", "Blog")
                         .WithMany()
-                        .HasForeignKey("CommentId");
+                        .HasForeignKey("BlogId");
 
                     b.HasOne("BisleriumBlog.Domain.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
 
-                    b.Navigation("Comment");
+                    b.Navigation("Blog");
 
                     b.Navigation("User");
                 });
