@@ -32,6 +32,16 @@ namespace BisleriumBlog.WebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddCors(opions =>
+            {
+                opions.AddPolicy("frontend", policyBuilder =>
+                {
+                    policyBuilder.WithOrigins("https://localhost:7243/");
+                    policyBuilder.AllowAnyHeader();
+                    policyBuilder.AllowAnyMethod();
+                    policyBuilder.AllowCredentials();
+                });
+            });
 
             var app = builder.Build();
             //AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -43,7 +53,7 @@ namespace BisleriumBlog.WebAPI
                 app.UseSwaggerUI();
             }
 
-            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+           /* app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());*/
 
             app.UseHttpsRedirection();
 
@@ -52,6 +62,8 @@ namespace BisleriumBlog.WebAPI
             app.UseAuthorization();
 
             app.MapControllers();
+
+            app.UseCors("frontend");
 
             app.Run();
         }

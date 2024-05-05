@@ -6,6 +6,7 @@ namespace BisleriumBlog.Application.DTOs.CommentDTOs
     {
         public bool? Status { get; set; }
         public string? Message { get; set; }
-        public IEnumerable<Comment>? Data { get; set; }
+        public object? Data { get; set; }
+        // public IEnumerable<Comment>? Data { get; set; }
     }
 }

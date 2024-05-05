@@ -4,6 +4,7 @@ using BisleriumBlog.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BisleriumBlog.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240505014529_MigrateUsertableWithNewColumn")]
+    partial class MigrateUsertableWithNewColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,9 +60,6 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("OldContent")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PopularBlog")
                         .HasColumnType("int");
@@ -112,9 +112,6 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("OldComments")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PopularComments")
                         .HasColumnType("int");
@@ -385,16 +382,16 @@ namespace BisleriumBlog.Infrastructure.Migrations
                         {
                             Id = "02174cf0–9412–4cfe-afbf-59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "36f331fe-d35f-44f8-8f6b-7730eee36d8f",
+                            ConcurrencyStamp = "d521601c-6fd5-4088-8dc4-fc8c7fb885e0",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEGl33L2CJFNmsaTvT4tXqu16whENDi8KdSs40/k0fPacnEu0lUc+EdTYfWJ3ZlelmQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBO/F3a1U2vfNL8ACZmTDqXm8W1AZifCYFCSdhZFaXchgMz0VsBzT8pHgVRjD6poJQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c1da3109-fef9-42a6-b914-545570931e08",
+                            SecurityStamp = "fc545165-a4ea-4500-bb54-0e1b15309ab7",
                             TwoFactorEnabled = false,
                             UserName = "admin",
-                            CreatedTime = new DateTime(2024, 5, 5, 8, 52, 26, 67, DateTimeKind.Local).AddTicks(7128),
+                            CreatedTime = new DateTime(2024, 5, 5, 7, 30, 29, 121, DateTimeKind.Local).AddTicks(8723),
                             IsDeleted = false
                         });
                 });

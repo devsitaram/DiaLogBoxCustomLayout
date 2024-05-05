@@ -19,7 +19,7 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Post the blog
-        public async Task<ResponseBlog> BlogPost(Application.DTOs.BlogDTOs.BlogRequestDTO model)
+        public async Task<ResponseBlog> BlogPost(BlogRequestDTO model)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
                     Data = null
                 };
             }
@@ -62,30 +62,6 @@ namespace BisleriumBlog.Infrastructure.Services
         // Get all blog with Peginated
         public async Task<PeginatedResponseBlogDTOs> GetBlogs(int pageNumber, int pageSize)
         {
-            //try
-            //{
-            //    var totalBlogs = await _context.Blogs.Where(blog => !blog.IsDeleted).CountAsync();
-            //    var totalPages = (int)Math.Ceiling((double)totalBlogs / pageSize);
-
-            //    var blogs = await _context.Blogs
-            //                              .Where(blog => !blog.IsDeleted)
-            //                              .OrderByDescending(blog => blog.CreatedTime)
-            //                              .Skip((pageNumber - 1) * pageSize)
-            //                              .Take(pageSize)
-            //                              .ToListAsync();
-
-            //    //var blogId = 1;
-            //    var comment = await _context.Comment.Where(comment => comment.BlogId == blogId && !comment.IsDeleted).ToListAsync();
-
-            //    return new PeginatedResponseBlogDTOs
-            //    {
-            //        Status = true,
-            //        Message = "Blogs retrieved successfully!",
-            //        BlogComment = ??,
-            //        TotalPages = totalPages,
-            //        CurrentPage = pageNumber
-            //    };
-            //}
             try
             {
                 var totalBlogs = await _context.Blogs.Where(blog => !blog.IsDeleted).CountAsync();
@@ -154,13 +130,13 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new PeginatedResponseBlogDTOs
                 {
                     Status = false,
-                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
                     BlogComment = null
                 };
             }
         }
 
-        // Delete
+        // Delete Blog
         public async Task<ResponseBlog> DeleteBlogPost(int blogId)
         {
             try
@@ -191,7 +167,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 {
                     Status = true,
                     Message = "Blog is successfully deleted!",
-                    Data = allBlogs // Returning all undeleted blogs
+                    // Data = allBlogs // Returning all undeleted blogs
                 };
             }
             catch (Exception ex)
@@ -199,13 +175,13 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
                     Data = null
                 };
             }
         }
 
-        // Update 
+        // Update Blog
         public async Task<ResponseBlog> UpdateBlog(int blogId, UpdateBlog model)
         {
             try
@@ -222,8 +198,12 @@ namespace BisleriumBlog.Infrastructure.Services
                     };
                 }
 
+                // old content
+                var oldBlogContent = blog.Content;
+
                 blog.Content = model.Content;
                 blog.Title = model.Title;
+                blog.OldContent = oldBlogContent;
                 blog.LastModifiedTime = DateTime.Now;
                 blog.ModifiedBy = Guid.NewGuid();
 
@@ -245,7 +225,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new ResponseBlog
                 {
                     Status = false,
-                    Message = "Sorry, something went wrong on our end. Please try again later.",
+                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
                     Data = null
                 };
             }

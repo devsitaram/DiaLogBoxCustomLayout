@@ -4,6 +4,7 @@ using BisleriumBlog.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BisleriumBlog.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240505025610_MigrateTehCommenttableAddNewColumn")]
+    partial class MigrateTehCommenttableAddNewColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,9 +60,6 @@ namespace BisleriumBlog.Infrastructure.Migrations
 
                     b.Property<Guid?>("ModifiedBy")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("OldContent")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PopularBlog")
                         .HasColumnType("int");
@@ -385,16 +385,16 @@ namespace BisleriumBlog.Infrastructure.Migrations
                         {
                             Id = "02174cf0–9412–4cfe-afbf-59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "36f331fe-d35f-44f8-8f6b-7730eee36d8f",
+                            ConcurrencyStamp = "d2783f2d-d6cb-4dee-a1f8-8a75368faaba",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEGl33L2CJFNmsaTvT4tXqu16whENDi8KdSs40/k0fPacnEu0lUc+EdTYfWJ3ZlelmQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEL3YdwRMN3Mfez1OneTEIJdrXg/MtUgrWoa1oMft/PWtkyX2kSnORsLS1RBf2CQO6Q==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c1da3109-fef9-42a6-b914-545570931e08",
+                            SecurityStamp = "23aa95f0-7127-4e86-8aa0-b890e49cd027",
                             TwoFactorEnabled = false,
                             UserName = "admin",
-                            CreatedTime = new DateTime(2024, 5, 5, 8, 52, 26, 67, DateTimeKind.Local).AddTicks(7128),
+                            CreatedTime = new DateTime(2024, 5, 5, 8, 41, 9, 480, DateTimeKind.Local).AddTicks(953),
                             IsDeleted = false
                         });
                 });

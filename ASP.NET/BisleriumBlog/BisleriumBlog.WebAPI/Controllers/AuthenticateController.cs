@@ -17,6 +17,7 @@ namespace BisleriumBlog.WebAPI.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         [Route("/api/authenticate/register")]
         public async Task<ResponseDTO> Register([FromBody] UserRegisterRequestDto model)
         {
@@ -33,8 +34,8 @@ namespace BisleriumBlog.WebAPI.Controllers
             return result;
         }
 
+        // [Authorize]
         [HttpPatch]
-        [AllowAnonymous]
         [Route("/api/forgotpassword")]
         public async Task<ResponseDTO> ForgotPassword(string email, string password)
         {
@@ -54,9 +55,9 @@ namespace BisleriumBlog.WebAPI.Controllers
         // [Authorize]
         [HttpPatch]
         [Route("/api/update/profile")]
-        public async Task<ActionResult<UserDetailsRespons>> UpdateProfile([FromBody] UserDTO model)
+        public async Task<ActionResult<UpdateProfileResponse>> UpdateProfile([FromQuery] string userId, [FromBody] UpdateProfileDTO model)
         {
-            var result = await _authenticationManager.UpdateProfile(model);
+            var result = await _authenticationManager.UpdateProfile(userId, model);
             return result;
         }
 

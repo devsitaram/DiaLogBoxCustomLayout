@@ -262,40 +262,41 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Update user profile details
-        public async Task<UserDetailsRespons> UpdateProfile(UserDTO model)
+        public async Task<UpdateProfileResponse> UpdateProfile(string userId, UpdateProfileDTO model)
         {
-            try { 
-                var user = await _userManager.FindByIdAsync(model.Id);
+            try {
+                var user = await _userManager.FindByIdAsync(userId);
                 if (user == null)
-                    return new UserDetailsRespons { Status = false, Message = "User not found!" };
+                    return new UpdateProfileResponse { Status = false, Message = "User not found!" };
 
                 user.Email = model.Email;
                 user.UserName = model.Username;
                 user.PhoneNumber = model.PhoneNumber;
 
                 var result = await _userManager.UpdateAsync(user);
+                var roles = await _userManager.GetRolesAsync(user);
 
-                var userDetails = new UserDTO
+                var updateProfileDTO = new UpdateProfileDTO()
                 {
-                    Id = user.Id,
+                    Id = userId,
                     Email = user.Email,
                     Username = user.UserName,
                     PhoneNumber = user.PhoneNumber,
-                    Role = model.Role
+                    Role = roles.FirstOrDefault()
                 };
 
                 if (result.Succeeded)
                 {
-                    return new UserDetailsRespons
+                    return new UpdateProfileResponse
                     {
                         Status = true,
                         Message = "Profile updated successfully!",
-                        UserDetails = userDetails
+                        UpdateProfileDTO = updateProfileDTO
                     };
                 }
                 else
                 {
-                    return new UserDetailsRespons
+                    return new UpdateProfileResponse
                     {
                         Status = false,
                         Message = "Failed to update profile!",
@@ -304,7 +305,7 @@ namespace BisleriumBlog.Infrastructure.Services
             }
             catch
             {
-                return new UserDetailsRespons
+                return new UpdateProfileResponse
                 {
                     Status = false,
                     Message = "Sorry, something went wrong on our end. Please try again later.",
@@ -312,7 +313,7 @@ namespace BisleriumBlog.Infrastructure.Services
             }
         }
 
-        // Update Profile details
+        // Update user role
         public async Task<UserDetailsRespons> UpdateRole(string userId, string userRole)
         {
             try

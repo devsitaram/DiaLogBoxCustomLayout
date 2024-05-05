@@ -13,6 +13,8 @@ namespace BisleriumBlog.Domain.Entities
         [Key]
         public int Id { get; set; }
         public string? Comments { get; set; }
+        
+        public string? OldComments { get; set; }
         public int PopularComments { get; set; }
 
         // Foreign key Blog

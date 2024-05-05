@@ -29,7 +29,7 @@ namespace BisleriumBlog.Infrastructure.DI
                 b => b.MigrationsAssembly("BisleriumBlog.Infrastructure")),
                 ServiceLifetime.Transient);
 
-            services.AddIdentity<Domain.Entities.User, IdentityRole>(options => {
+            services.AddIdentity<User, IdentityRole>(options => {
                 options.SignIn.RequireConfirmedAccount = false;
                 options.Password.RequireDigit = false;
                 options.Password.RequiredLength = 6;

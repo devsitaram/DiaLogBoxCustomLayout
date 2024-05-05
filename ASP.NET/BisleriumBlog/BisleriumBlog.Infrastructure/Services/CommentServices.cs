@@ -1,4 +1,6 @@
-﻿using BisleriumBlog.Application.DTOs.CommentDTOs;
+﻿using BisleriumBlog.Application.DTOs.BlogDTOs;
+using BisleriumBlog.Application.DTOs.CommentDTOs;
+using BisleriumBlog.Application.DTOs.CommentDTOs.Update;
 using BisleriumBlog.Application.Interface.Repository;
 using BisleriumBlog.Domain.Entities;
 using BisleriumBlog.Infrastructure.Data;
@@ -25,7 +27,6 @@ namespace BisleriumBlog.Infrastructure.Services
                     Comments = model.Content,
                     BlogId = model.BlogId,
                     UserId = model.UserId,
-                    CreatedTime = DateTime.Now,
                     CreatedBy = Guid.NewGuid(),
                     IsDeleted = false
                 };
@@ -98,46 +99,96 @@ namespace BisleriumBlog.Infrastructure.Services
                 {
                     Status = false,
                     Message = $"Sorry, something went wrong on our end. Please try again later. {Id}",
-                    Data = null
                 };
             }
         }
 
-        /*public async Task<ResponseComments> GetComment(int Id)
+        public async Task<ResponseComments> DeleteComment(int commentId)
         {
             try
             {
-                var allComments = await _context.Comment
-                                         .Where(comment => comment.BlogId == Id && !comment.IsDeleted)
-                                         .ToListAsync();
+                var commment = await _context.Comment.FindAsync(commentId);
 
-                if (allComments.Count == 0)
+                if (commment == null)
                 {
                     return new ResponseComments
                     {
-                        Status = true,
-                        Message = "Not Comment",
-                        Data = allComments
+                        Status = false,
+                        Message = "Comment is not found!",
                     };
                 }
+
+                commment.IsDeleted = true;
+                commment.DeletedTime = DateTime.Now;
+                commment.DeletedBy = Guid.NewGuid();
+
+                await _context.SaveChangesAsync();
+
+                var allBlogs = await _context.Blogs
+                                              .Where(b => !b.IsDeleted)
+                                              .ToListAsync();
 
                 return new ResponseComments
                 {
                     Status = true,
-                    Message = "Success",
-                    Data = allComments
+                    Message = "Comment is successfully Deleted!",
                 };
             }
-            catch
+            catch (Exception ex)
             {
                 return new ResponseComments
                 {
                     Status = false,
-                    Message = $"Sorry, something went wrong on our end. Please try again later. {Id}",
-                    Data = null
+                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
                 };
             }
-        }*/
+        }
+
+        public async Task<ResponseComments> UpdateComment(int commentId, CommentUpdateRequest model)
+        {
+            try
+            {
+                var commment = await _context.Comment.FindAsync(commentId);
+
+                if (commment == null)
+                {
+                    return new ResponseComments
+                    {
+                        Status = false,
+                        Message = "Comment is not found!",
+                    };
+                }
+
+                // get pewvious comment
+                var oldComment = commment.Comments;
+
+                commment.Comments = model.Comments;
+                commment.OldComments = oldComment;
+                commment.LastModifiedTime = DateTime.Now;
+                commment.ModifiedBy = Guid.NewGuid();
+
+                await _context.SaveChangesAsync();
+
+                //var allBlogs = await _context.Comment
+                //                              .Where(b => !b.IsDeleted)
+                //                              .ToListAsync();
+
+                return new ResponseComments
+                {
+                    Status = true,
+                    Message = "Comment is successfully updated!",
+                    Data = commment
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseComments
+                {
+                    Status = false,
+                    Message = $"Sorry, something went wrong on our end. Please try again later. {ex.Message}",
+                };
+            }
+        }
     }
 }
 
