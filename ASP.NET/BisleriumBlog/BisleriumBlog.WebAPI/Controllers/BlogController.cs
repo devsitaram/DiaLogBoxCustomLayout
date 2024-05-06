@@ -20,79 +20,72 @@ namespace BisleriumBlog.WebAPI.Controllers
 
         [HttpPost]
         [Route("/api/blog/post")]
-        public async Task<ResponseBlog> Register([FromBody] BlogRequestDTO model)
+        public async Task<ResponseBlog> Register([FromForm] BlogRequestDTO model)
         {
-            var result = await _blog.BlogPost(model);
+            // Check if the uploaded file is an image (upload image type)
+            string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+            string fileExtension = Path.GetExtension(model.ImageFile.FileName).ToLower();
+            if (!allowedExtensions.Contains(fileExtension))
+            {
+                return new ResponseBlog
+                {
+                    Status = false,
+                    Message = "Only image files (jpg, jpeg, png, gif, bmp) are allowed."
+                };
+            }
+
+            // Check the file size (validation)
+            long size = model.ImageFile.Length;
+            if (size > 3 * 1024 * 1024) // 3 MB limit
+            {
+                return new ResponseBlog
+                {
+                    Status = false,
+                    Message = "Image size must be less than 3 MB."
+                };
+            }
+
+            string fileName = Path.GetRandomFileName() + fileExtension;
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "Images/BlogImages", fileName);
+
+            string imageUrl = Path.Combine("/Images/BlogImages/", fileName);
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await model.ImageFile.CopyToAsync(stream);
+            }
+
+            var result = await _blog.BlogPost(model, imageUrl);
             return result;
         }
 
-        [Authorize]
-        [HttpPost]
-        [Route("/api/image/post")]
-        public async Task<string> UploadImage([FromForm] UploadFileDTO model)
-        {
-            if (model.File.Length > 0)
-            {
-                try
-                {
-                    if (!Directory.Exists(_webHostEnvironment.WebRootPath + "\\Images\\"))
-                    {
-                        Directory.CreateDirectory(_webHostEnvironment.WebRootPath + "\\Images\\");
-                    }
-
-                    using (FileStream fileStream = System.IO.File.Create(_webHostEnvironment.WebRootPath + "\\Images" + model.File.FileName))
-                    {
-                        model.File.CopyTo(fileStream);
-                        fileStream.Flush();
-                        return "\\Images\\" + model.File.FileName;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
-            }
-            else
-            {
-                return "No file found";
-            }
-        }
-
         //[HttpPost]
-        //[Route("/api/image/post")]
-        //public async Task<string> UploadImage([FromForm] UploadFileDTO model)
+        //[Route("/api/blog/post")]
+        //public async Task<ResponseBlog> Register([FromForm] BlogRequestDTO model)
         //{
-        //    if (model.File != null && model.File.Length > 0)
+
+        //    string fileName = Path.GetRandomFileName() + Path.GetExtension(model.ImageFile.FileName);
+        //    string path = Path.Combine(_webHostEnvironment.WebRootPath, "Images/BlogImages", fileName);
+        //    also check the image file type like jpg, jpeg, png, ... Only required the image
+        //    long size = path.Length;
+        //    // Check if the file size is greater than 3 MB
+        //    if (size > 3 * 1024 * 1024)
         //    {
-        //        try
+        //        return new ResponseBlog
         //        {
-        //            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
-
-        //            if (!Directory.Exists(uploadsFolder))
-        //            {
-        //                Directory.CreateDirectory(uploadsFolder);
-        //            }
-
-        //            string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(model.File.FileName);
-        //            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-        //            using (FileStream fileStream = System.IO.File.Create(filePath))
-        //            {
-        //                await model.File.CopyToAsync(fileStream);
-        //                fileStream.Flush();
-        //                return "/Images/" + uniqueFileName;
-        //            }
-
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            return ex.Message;
-        //        }
+        //            Status = false,
+        //            Message = "Image size must be less than 3 MB."
+        //        };
         //    }
         //    else
         //    {
-        //        return "No file found";
+        //        string imageUrl = Path.Combine("/Images/BlogImages/", fileName);
+        //        using (var stream = new FileStream(path, FileMode.Create))
+        //        {
+        //            await model.ImageFile.CopyToAsync(stream);
+        //        }
+
+        //        var result = await _blog.BlogPost(model, imageUrl);
+        //        return result;
         //    }
         //}
 

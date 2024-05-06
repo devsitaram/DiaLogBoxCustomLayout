@@ -19,7 +19,7 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Post the blog
-        public async Task<ResponseBlog> BlogPost(BlogRequestDTO model)
+        public async Task<ResponseBlog> BlogPost(BlogRequestDTO model, string imageUrl)
         {
             try
             {
@@ -27,7 +27,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 {
                     Title = model.Title,
                     Content = model.Content,
-                    ImageUrl = model.ImageUrl,
+                    ImageUrl = imageUrl,
                     UserId = model.UserId,
                     CreatedTime = DateTime.Now,
                     CreatedBy = Guid.NewGuid(),
@@ -196,8 +196,8 @@ namespace BisleriumBlog.Infrastructure.Services
                 // old content
                 var oldBlogContent = blog.Content;
 
-                blog.Content = model.Content;
                 blog.Title = model.Title;
+                blog.Content = model.Content;
                 blog.OldContent = oldBlogContent;
                 blog.LastModifiedTime = DateTime.Now;
                 blog.ModifiedBy = Guid.NewGuid();

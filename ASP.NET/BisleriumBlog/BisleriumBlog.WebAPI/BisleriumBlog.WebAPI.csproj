@@ -29,4 +29,8 @@
     <ProjectReference Include="..\BisleriumBlog.Infrastructure\BisleriumBlog.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\BlogImages\" />
+  </ItemGroup>
+
 </Project>

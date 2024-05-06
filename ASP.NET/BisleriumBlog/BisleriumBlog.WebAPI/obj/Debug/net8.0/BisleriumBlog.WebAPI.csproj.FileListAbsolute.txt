@@ -148,3 +148,4 @@ C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBl
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\BisleriumBlog.WebAPI.pdb
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\BisleriumBlog.WebAPI.genruntimeconfig.cache
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\ref\BisleriumBlog.WebAPI.dll
+C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\bin\Debug\net8.0\BisleriumBlog.WebAPI.staticwebassets.runtime.json

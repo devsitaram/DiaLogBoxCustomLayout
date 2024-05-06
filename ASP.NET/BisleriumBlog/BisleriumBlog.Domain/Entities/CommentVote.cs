@@ -11,7 +11,7 @@ namespace BisleriumBlog.Domain.Entities
         public int? DownVote { get; set; }
         public int? OldVote { get; set; }
 
-        // Foreign key Blog
+        // Foreign key Comment
         public int? CommentId { get; set; }
         public virtual Comment? Comment { get; set; }
 

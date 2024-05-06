@@ -11,12 +11,13 @@ namespace BisleriumBlog.Domain.Entities
         public int BlogId { get; set; }
 
         [Required]
-        public string? Title { get; set; }
+        public string Title { get; set; }
 
         [Required]
-        public string? Content { get; set; }
+        public string Content { get; set; }
 
-        public string? ImageUrl { get; set; }
+        [Required]
+        public string ImageUrl { get; set; }
 
         public int PopularBlog { get; set; }
         public string? OldContent { get; set; }

@@ -39,6 +39,7 @@ namespace BisleriumBlog.Infrastructure.DI
             services.AddTransient<IBlog, BlogServices>();
             services.AddTransient<IComment, CommentServices>();
             services.AddTransient<ICommentVote, CommentVoteServices>();
+            services.AddTransient<IBlogVote, BlogVoteServices>();
 
             return services;
         }
