@@ -127,8 +127,10 @@ namespace BisleriumBlog.Infrastructure.Services
                 // Update the comment's popularity in the database
                 var comments = await _context.Comment.FindAsync(model.CommentId);
                 comments.PopularComments = pularity;
-                await _context.SaveChangesAsync();
-
+                int changes = await _context.SaveChangesAsync();
+                if (changes <= 0) {
+                    throw new Exception("Database not updated.");
+                }
                 return new ResponseDTO
                 {
                     Status = true,

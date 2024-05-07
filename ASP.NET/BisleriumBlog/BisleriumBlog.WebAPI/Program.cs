@@ -12,6 +12,8 @@ namespace BisleriumBlog.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
+            builder.Services.AddSignalR();
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -60,6 +62,10 @@ namespace BisleriumBlog.WebAPI
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            // Add 
+            //app.UseEndpoints(endpoints => endpoints.MapHub<Notification>("/notification"));
+            app.MapHub<Notification>("/notification");
 
             app.MapControllers();
 

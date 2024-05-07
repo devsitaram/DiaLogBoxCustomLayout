@@ -78,6 +78,7 @@ namespace BisleriumBlog.Infrastructure.Services
                         Content = blog.Content,
                         ImageUrl = blog.ImageUrl,
                         PopularBlog = blog.PopularBlog,
+                        CreatedTime = blog.CreatedTime,
                         LastModifiedTime = blog.LastModifiedTime,
                         CreatedBy = blog.CreatedBy,
                         ModifiedBy = blog.ModifiedBy,

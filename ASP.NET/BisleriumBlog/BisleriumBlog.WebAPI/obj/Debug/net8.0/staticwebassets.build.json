@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+41oz4OY++ulfM93Zeljscf1lXwVtN1ZH94g8Q3wmV0=",
+  "Hash": "Gk0fsdsJ7tFT/S4rjd+H15ILy86npmF3Yp6dDBZoK+8=",
   "Source": "BisleriumBlog.WebAPI",
   "BasePath": "_content/BisleriumBlog.WebAPI",
   "Mode": "Default",
@@ -36,6 +36,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\awczbqlg.gm3.jpg"
     },
     {
+      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\b1egugs4.ifg.jpg",
+      "SourceId": "BisleriumBlog.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "BasePath": "_content/BisleriumBlog.WebAPI",
+      "RelativePath": "Images/BlogImages/b1egugs4.ifg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\b1egugs4.ifg.jpg"
+    },
+    {
       "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\e0cnk03k.yh5.jpg",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
@@ -53,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\e0cnk03k.yh5.jpg"
+    },
+    {
+      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\i44d5g5b.wqr.jpg",
+      "SourceId": "BisleriumBlog.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "BasePath": "_content/BisleriumBlog.WebAPI",
+      "RelativePath": "Images/BlogImages/i44d5g5b.wqr.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\i44d5g5b.wqr.jpg"
     },
     {
       "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\todu123p.ute.png",
