@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.Domain\\BisleriumBlog.Domain.csproj": {}
+    "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.Domain\\BisleriumBlog.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.Domain\\BisleriumBlog.Domain.csproj": {
+    "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.Domain\\BisleriumBlog.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.Domain\\BisleriumBlog.Domain.csproj",
+        "projectUniqueName": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.Domain\\BisleriumBlog.Domain.csproj",
         "projectName": "BisleriumBlog.Domain",
-        "projectPath": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.Domain\\BisleriumBlog.Domain.csproj",
+        "projectPath": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.Domain\\BisleriumBlog.Domain.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.Domain\\obj\\",
+        "outputPath": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uWwbcueOxgbmrJKo778hyNA0IPV4wB03lRq/mgP0M08=",
+  "Hash": "6talJZb7802Dp3Ik7ai/X6RAb+VaT0lCotchs/qzlEQ=",
   "Source": "BisleriumBlog.WebAPI",
   "BasePath": "_content/BisleriumBlog.WebAPI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "BisleriumBlog.WebAPI\\wwwroot",
       "Source": "BisleriumBlog.WebAPI",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\4mb5qjmp.xl4.png",
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\4mb5qjmp.xl4.png",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "RelativePath": "Images/BlogImages/4mb5qjmp.xl4.png",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\4mb5qjmp.xl4.png"
     },
     {
-      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\awczbqlg.gm3.jpg",
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\awczbqlg.gm3.jpg",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "RelativePath": "Images/BlogImages/awczbqlg.gm3.jpg",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\awczbqlg.gm3.jpg"
     },
     {
-      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\b1egugs4.ifg.jpg",
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\b1egugs4.ifg.jpg",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "RelativePath": "Images/BlogImages/b1egugs4.ifg.jpg",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\b1egugs4.ifg.jpg"
     },
     {
-      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\e0cnk03k.yh5.jpg",
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\e0cnk03k.yh5.jpg",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "RelativePath": "Images/BlogImages/e0cnk03k.yh5.jpg",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\e0cnk03k.yh5.jpg"
     },
     {
-      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\i44d5g5b.wqr.jpg",
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\i44d5g5b.wqr.jpg",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "RelativePath": "Images/BlogImages/i44d5g5b.wqr.jpg",
       "AssetKind": "All",
@@ -112,10 +112,29 @@
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\i44d5g5b.wqr.jpg"
     },
     {
-      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\todu123p.ute.png",
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\m4usxypv.ha3.png",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "BasePath": "_content/BisleriumBlog.WebAPI",
+      "RelativePath": "Images/BlogImages/m4usxypv.ha3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\m4usxypv.ha3.png"
+    },
+    {
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\todu123p.ute.png",
+      "SourceId": "BisleriumBlog.WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "RelativePath": "Images/BlogImages/todu123p.ute.png",
       "AssetKind": "All",
@@ -131,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\todu123p.ute.png"
     },
     {
-      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\v13rhuvq.pnq.png",
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\v13rhuvq.pnq.png",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "RelativePath": "Images/BlogImages/v13rhuvq.pnq.png",
       "AssetKind": "All",
@@ -150,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\Images\\BlogImages\\v13rhuvq.pnq.png"
     },
     {
-      "Identity": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\vhszu3yk.w41.jpg",
+      "Identity": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\vhszu3yk.w41.jpg",
       "SourceId": "BisleriumBlog.WebAPI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
+      "ContentRoot": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\",
       "BasePath": "_content/BisleriumBlog.WebAPI",
       "RelativePath": "Images/BlogImages/vhszu3yk.w41.jpg",
       "AssetKind": "All",

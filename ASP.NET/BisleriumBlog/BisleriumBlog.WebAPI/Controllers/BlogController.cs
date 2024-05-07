@@ -1,5 +1,6 @@
 ﻿using BisleriumBlog.Application.Common.Interface;
 using BisleriumBlog.Application.DTOs.BlogDTOs;
+using BisleriumBlog.Application.DTOs.DashboardDTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -58,37 +59,6 @@ namespace BisleriumBlog.WebAPI.Controllers
             return result;
         }
 
-        //[HttpPost]
-        //[Route("/api/blog/post")]
-        //public async Task<ResponseBlog> Register([FromForm] BlogRequestDTO model)
-        //{
-
-        //    string fileName = Path.GetRandomFileName() + Path.GetExtension(model.ImageFile.FileName);
-        //    string path = Path.Combine(_webHostEnvironment.WebRootPath, "Images/BlogImages", fileName);
-        //    also check the image file type like jpg, jpeg, png, ... Only required the image
-        //    long size = path.Length;
-        //    // Check if the file size is greater than 3 MB
-        //    if (size > 3 * 1024 * 1024)
-        //    {
-        //        return new ResponseBlog
-        //        {
-        //            Status = false,
-        //            Message = "Image size must be less than 3 MB."
-        //        };
-        //    }
-        //    else
-        //    {
-        //        string imageUrl = Path.Combine("/Images/BlogImages/", fileName);
-        //        using (var stream = new FileStream(path, FileMode.Create))
-        //        {
-        //            await model.ImageFile.CopyToAsync(stream);
-        //        }
-
-        //        var result = await _blog.BlogPost(model, imageUrl);
-        //        return result;
-        //    }
-        //}
-
         [HttpGet]
         [Route("/api/all/blog")]
         public async Task<PeginatedResponseBlogDTOs> GetBlogs(int pageNumber = 1, int pageSize = 10)
@@ -98,7 +68,7 @@ namespace BisleriumBlog.WebAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("/api/delete/blog")]
+        [Route("/api/delete/blog/{blodId}")]
         public async Task<ResponseBlog> DeleteBlog([FromQuery] int blogId)
         {
             var result = await _blog.DeleteBlogPost(blogId);
@@ -106,10 +76,35 @@ namespace BisleriumBlog.WebAPI.Controllers
         }
 
         [HttpPatch]
-        [Route("/api/update/blog")]
+        [Route("/api/update/blog/{blodId}")]
         public async Task<ResponseBlog> Updateblog([FromQuery] int blodId, [FromBody]UpdateBlog model)
         {
             var result = await _blog.UpdateBlog(blodId, model);
+            return result;
+        }
+
+        [HttpGet]
+        [Route("/api/user/blog/{userId}")]
+        public async Task<PeginatedResponseBlogDTOs> GetBlogs(string userId)
+        {
+            var result = await _blog.GetBlogsByUserId(userId);
+            return result;
+        }
+
+        [HttpGet]
+        [Route("/api/all/blog/by/sorting/")]
+        public async Task<PeginatedResponseBlogDTOs> GetBlogsBySorting(int pageNumber, int pageSize, string sortBy)
+        {
+            var result = await _blog.GetBlogsBySorting(pageNumber, pageSize, sortBy);
+            return result;
+        }
+
+
+        [HttpGet]
+        [Route("/api/activity/status/")]
+        public async Task<DashboardResponseDTOs> GetDashboardActivityStats(int year, int month)
+        {
+            var result = await _blog.GetDashboardActivityStats(year, month);
             return result;
         }
     }
