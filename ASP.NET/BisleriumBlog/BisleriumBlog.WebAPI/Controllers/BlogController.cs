@@ -20,12 +20,12 @@ namespace BisleriumBlog.WebAPI.Controllers
 
         [HttpPost]
         [Route("/api/blog/post")]
-        public async Task<ResponseBlog> Register([FromForm] BlogRequestDTO model)
+        public async Task<ResponseBlog> PostBlog([FromForm] BlogRequestDTO model)
         {
             // Check if the uploaded file is an image (upload image type)
             string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
-            string fileExtension = Path.GetExtension(model.ImageFile.FileName).ToLower();
-            if (!allowedExtensions.Contains(fileExtension))
+            string fileExtension = Path.GetExtension(model.ImageFile.FileName);
+            if (!allowedExtensions.Contains(fileExtension.ToLower()))
             {
                 return new ResponseBlog
                 {

@@ -133,7 +133,6 @@ C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBl
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\BisleriumBlog.WebAPI.csproj.CoreCompileInputs.cache
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\BisleriumBlog.WebAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\BisleriumBlog.WebAPI.MvcApplicationPartsAssemblyInfo.cache
-C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\BisleriumBlog.WebAPI.sourcelink.json
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\staticwebassets.build.json
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\staticwebassets.development.json
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.BisleriumBlog.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props

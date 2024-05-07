@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\4mb5qjmp.xl4.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\4mb5qjmp.xl4.png"
+    },
+    {
       "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\awczbqlg.gm3.jpg",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\awczbqlg.gm3.jpg"
     },
@@ -19,6 +23,10 @@
     {
       "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\todu123p.ute.png",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\todu123p.ute.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\v13rhuvq.pnq.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\v13rhuvq.pnq.png"
     },
     {
       "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\vhszu3yk.w41.jpg",

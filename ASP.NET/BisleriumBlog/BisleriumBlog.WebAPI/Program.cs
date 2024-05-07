@@ -1,8 +1,6 @@
-
-using BisleriumBlog.Application.DTOs;
-using System.Text.Json;
 using BisleriumBlog.WebAPI.Helper;
 using BisleriumBlog.Infrastructure.DI;
+using Microsoft.Extensions.FileProviders;
 
 namespace BisleriumBlog.WebAPI
 {
@@ -53,6 +51,12 @@ namespace BisleriumBlog.WebAPI
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
+                app.UseStaticFiles(new StaticFileOptions
+                {
+                    FileProvider = new PhysicalFileProvider(
+                        Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images", "BlogImages")),
+                    RequestPath = "/Images/BlogImages"
+                });
             }
 
            /* app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());*/
