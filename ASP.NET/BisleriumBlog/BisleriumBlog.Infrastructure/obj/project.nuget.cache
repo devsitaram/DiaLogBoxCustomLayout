@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eFHGFLqArv8XeLJH4a05CxmU9gbG7Av0Vo/sqS9MlG74iEVq/v1zJsznrHar2nvI6CFPF3gK8V8Phr0zVafCxA==",
+  "dgSpecHash": "5gxsqUc9ZI90bP2tu7OcFh/+8E7YB+TkZE8C7QYeXZUPy772kqlNV02GZgQJm5TYA/tDjxY0fq0nkmwTb3Q2dQ==",
   "success": true,
-  "projectFilePath": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.Infrastructure\\BisleriumBlog.Infrastructure.csproj",
+  "projectFilePath": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.Infrastructure\\BisleriumBlog.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

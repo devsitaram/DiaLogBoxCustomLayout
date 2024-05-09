@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BisleriumBlog.Application.DTOs.CommentDTOs;
+﻿using BisleriumBlog.Application.DTOs.CommentDTOs;
 using BisleriumBlog.Application.DTOs.UserDTOs;
-using BisleriumBlog.Domain.Entities;
-using BisleriumBlog.Domain.Shared;
 
 namespace BisleriumBlog.Application.DTOs.BlogDTOs
 {
@@ -28,7 +20,9 @@ namespace BisleriumBlog.Application.DTOs.BlogDTOs
         public Guid? ModifiedBy { get; set; }
 
         public UserDTO? UserDTO { get; set; }
-        public IEnumerable<CommentDTO>? CommentDTOs { get; set; }
-
+        public IEnumerable<object>? CommentDTOs { get; set; }
+        public int? TotalUpvotes { get; set; }
+        public int? TotalDownvotes { get; set; }
+        public int? TotalComments { get; set; }
     }
 }

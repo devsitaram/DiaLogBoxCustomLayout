@@ -1,6 +1,7 @@
 using BisleriumBlog.WebAPI.Helper;
 using BisleriumBlog.Infrastructure.DI;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace BisleriumBlog.WebAPI
 {
@@ -10,19 +11,13 @@ namespace BisleriumBlog.WebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
-            builder.Services.AddSignalR();
-            // Add services to the container.
-
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             // Add services to the container.
-
             builder.Services.AddControllers();
-            //builder.Services.AddSignalR();
 
             builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.ConfigureJWT(builder.Configuration);
@@ -43,6 +38,10 @@ namespace BisleriumBlog.WebAPI
                 });
             });
 
+
+            builder.Services.AddSignalR();
+            // Add services to the container.
+
             var app = builder.Build();
             //AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
@@ -59,7 +58,7 @@ namespace BisleriumBlog.WebAPI
                 });
             }
 
-           /* app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());*/
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
             app.UseHttpsRedirection();
 
@@ -67,13 +66,12 @@ namespace BisleriumBlog.WebAPI
 
             app.UseAuthorization();
 
-            // Add 
-            //app.UseEndpoints(endpoints => endpoints.MapHub<Notification>("/notification"));
-            app.MapHub<Notification>("/notification");
-
             app.MapControllers();
 
             app.UseCors("frontend");
+
+            // Add notification 
+            app.MapHub<Notification>("/notification");
 
             app.Run();
         }

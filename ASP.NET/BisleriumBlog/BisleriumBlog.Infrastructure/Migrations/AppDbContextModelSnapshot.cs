@@ -79,6 +79,65 @@ namespace BisleriumBlog.Infrastructure.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("BisleriumBlog.Domain.Entities.BlogHistory", b =>
+                {
+                    b.Property<int>("BlogHistoryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogHistoryId"));
+
+                    b.Property<int?>("BlogId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("DeletedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("LastModifiedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ModifiedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("OldContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PopularBlog")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("BlogHistoryId");
+
+                    b.HasIndex("BlogId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BlogHistory");
+                });
+
             modelBuilder.Entity("BisleriumBlog.Domain.Entities.BlogVote", b =>
                 {
                     b.Property<int>("Id")
@@ -464,6 +523,9 @@ namespace BisleriumBlog.Infrastructure.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<string>("ConnectionId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid?>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
@@ -492,16 +554,16 @@ namespace BisleriumBlog.Infrastructure.Migrations
                         {
                             Id = "02174cf0–9412–4cfe-afbf-59f706d72cf6",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "606a9531-cf61-4d25-8369-9b43745dc85a",
+                            ConcurrencyStamp = "29b1f88e-0d47-444b-bb10-3c53dc261046",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAENZjM0NLkBZ8eRhxvMdq/vSN9tak/hfOZ3XS8s4WlUWlMBmkHL+K3HBPlxIPro8EOA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENqgCE67WfsvEmWG0NiM5BVdVF4h/s+IRAQ1zp8SsA4+oULuSMgkL9zXxTxO4GGiFA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3ce5dbfe-b967-49d5-b8e2-5d2b74b1985a",
+                            SecurityStamp = "e6310195-e17f-4858-babc-6db7aa039ccf",
                             TwoFactorEnabled = false,
                             UserName = "admin",
-                            CreatedTime = new DateTime(2024, 5, 6, 9, 0, 25, 681, DateTimeKind.Local).AddTicks(9879),
+                            CreatedTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false
                         });
                 });
@@ -511,6 +573,21 @@ namespace BisleriumBlog.Infrastructure.Migrations
                     b.HasOne("BisleriumBlog.Domain.Entities.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("BisleriumBlog.Domain.Entities.BlogHistory", b =>
+                {
+                    b.HasOne("BisleriumBlog.Domain.Entities.Blog", "Blog")
+                        .WithMany()
+                        .HasForeignKey("BlogId");
+
+                    b.HasOne("BisleriumBlog.Domain.Entities.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Blog");
 
                     b.Navigation("User");
                 });

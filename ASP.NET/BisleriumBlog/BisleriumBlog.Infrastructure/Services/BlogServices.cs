@@ -46,7 +46,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 return new ResponseBlog
                 {
                     Status = true,
-                    Message = "Blog successfully created.",
+                    Message = $"Blog successfully created.",
                 };
             }
             catch
@@ -60,7 +60,7 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Delete Blog
-        public async Task<ResponseBlog> DeleteBlogPost(int blogId)
+        public async Task<ResponseBlog> DeleteBlog(int blogId)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace BisleriumBlog.Infrastructure.Services
                     return new ResponseBlog
                     {
                         Status = false,
-                        Message = "Blog post not found!"
+                        Message = "Blog is not found!"
                     };
                 }
 
@@ -81,10 +81,6 @@ namespace BisleriumBlog.Infrastructure.Services
                 blog.DeletedBy = Guid.NewGuid();
 
                 await _context.SaveChangesAsync(); // saved in database
-
-                //var allBlogs = await _context.Blogs
-                //                              .Where(b => !b.IsDeleted)
-                //                              .ToListAsync();
 
                 return new ResponseBlog
                 {
@@ -103,7 +99,7 @@ namespace BisleriumBlog.Infrastructure.Services
         }
 
         // Update Blog
-        public async Task<ResponseBlog> UpdateBlog(int blogId, UpdateBlog model)
+        public async Task<ResponseBlog> UpdateBlog(int blogId, string imageUrl, BlogRequestDTO model)
         {
             try
             {
@@ -118,20 +114,33 @@ namespace BisleriumBlog.Infrastructure.Services
                     };
                 }
 
-                // old content
-                var oldBlogContent = blog.Content;
+                // Save the current state as history
+                _context.BlogHistory.Add(new BlogHistory
+                {
+                    Title = blog.Title,
+                    Content = blog.Content,
+                    ImageUrl = blog.ImageUrl,
+                    PopularBlog = blog.PopularBlog,
+                    OldContent = blog.Content,
+                    UserId = blog.UserId,
+                    BlogId = blog.BlogId,
+                    CreatedTime = blog.CreatedTime,
+                    CreatedBy = blog.ModifiedBy,
+                    LastModifiedTime = blog.LastModifiedTime,
+                    ModifiedBy = blog.ModifiedBy,
+                    DeletedBy = blog.DeletedBy,
+                    DeletedTime = blog.DeletedTime
+                });
 
                 blog.Title = model.Title;
                 blog.Content = model.Content;
-                blog.OldContent = oldBlogContent;
+                blog.ImageUrl = imageUrl;
+                blog.OldContent = blog.Content;
                 blog.LastModifiedTime = DateTime.Now;
                 blog.ModifiedBy = Guid.NewGuid();
 
                 await _context.SaveChangesAsync();
 
-                //var allBlogs = await _context.Blogs
-                //                              .Where(b => !b.IsDeleted)
-                //                              .ToListAsync();
 
                 return new ResponseBlog
                 {
@@ -149,19 +158,13 @@ namespace BisleriumBlog.Infrastructure.Services
             }
         }
 
-        // Get all blog with peginated
-        public async Task<PeginatedResponseBlogDTOs> GetBlogs(int pageNumber, int pageSize)
+        // Get blog by id
+        public async Task<ResponseBlogDetail> GetBlogById(int blogId)
         {
             try
             {
-                var totalBlogs = await _context.Blogs.Where(blog => !blog.IsDeleted).CountAsync();
-                var totalPages = (int)Math.Ceiling((double)totalBlogs / pageSize);
-
-                var pagedBlogs = await _context.Blogs
-                    .Where(blog => !blog.IsDeleted)
-                    .OrderByDescending(blog => blog.CreatedTime)
-                    .Skip((pageNumber - 1) * pageSize)
-                    .Take(pageSize)
+                var blogDetails = await _context.Blogs
+                    .Where(blog => blog.BlogId == blogId && !blog.IsDeleted)
                     .Select(blog => new BlogDTO
                     {
                         BlogId = blog.BlogId,
@@ -190,7 +193,7 @@ namespace BisleriumBlog.Infrastructure.Services
                                         Email = user.Email,
                                         PhoneNumber = user.PhoneNumber,
                                         Role = "Blogger"
-                                    }).FirstOrDefault()
+                                    }).FirstOrDefault(),
                             })
                             .ToList(),
                         UserDTO = _context.Users
@@ -204,21 +207,26 @@ namespace BisleriumBlog.Infrastructure.Services
                             Role = "Blogger"
 
                         }).FirstOrDefault()
-                    })
-                    .ToListAsync();
+                    }).ToListAsync();
 
-                return new PeginatedResponseBlogDTOs
+                var TotalUpvotes = await _context.BlogVote.Where(vote => vote.BlogId == blogId).SumAsync(vote => vote.UpVote);
+                var TotalDownvotes = await _context.BlogVote.Where(vote => vote.BlogId == blogId).SumAsync(vote => vote.DownVote);
+                var TotalComments = await _context.Comment.Where(comment => comment.BlogId == blogId && !comment.IsDeleted).SumAsync(comment => 1);
+
+                return new ResponseBlogDetail
                 {
                     Status = true,
                     Message = "Blogs retrieved successfully!",
-                    BlogComment = pagedBlogs,
-                    TotalPages = totalPages,
-                    CurrentPage = pageNumber
+                    BlogDetails = blogDetails,
+                    TotalUpvotes = TotalUpvotes,
+                    TotalDownvotes = TotalDownvotes,
+                    TotalComments = TotalComments
+
                 };
             }
             catch
             {
-                return new PeginatedResponseBlogDTOs
+                return new ResponseBlogDetail
                 {
                     Status = false,
                     Message = "Sorry, something went wrong on our end. Please try again later."
@@ -283,7 +291,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 {
                     Status = true,
                     Message = "Blogs retrieved successfully!",
-                    BlogComment = pagedBlogs,
+                    // BlogComment = pagedBlogs,
                 };
             }
             catch
@@ -296,7 +304,7 @@ namespace BisleriumBlog.Infrastructure.Services
             }
         }
 
-        // Sorting
+        //// Ordering by random, popularity and recency
         public async Task<PeginatedResponseBlogDTOs> GetBlogsBySorting(int pageNumber, int pageSize, string sortBy)
         {
             try
@@ -309,7 +317,7 @@ namespace BisleriumBlog.Infrastructure.Services
                 {
                     // Order by random
                     case "random":
-                        query = query.OrderByDescending(_ => Guid.NewGuid());
+                        query = query.OrderBy(_ => Guid.NewGuid());
                         break;
 
                     // Order by popularity
@@ -374,15 +382,16 @@ namespace BisleriumBlog.Infrastructure.Services
                                 Email = user.Email,
                                 PhoneNumber = user.PhoneNumber,
                                 Role = "Blogger"
-                            }).FirstOrDefault()
+                            }).FirstOrDefault(),
                     })
                     .ToListAsync();
+
 
                 return new PeginatedResponseBlogDTOs
                 {
                     Status = true,
                     Message = "Blogs retrieved successfully!",
-                    BlogComment = pagedBlogs,
+                    // BlogComment = pagedBlogs,
                     TotalPages = totalPages,
                     CurrentPage = pageNumber
                 };
@@ -399,6 +408,113 @@ namespace BisleriumBlog.Infrastructure.Services
                 };
             }
         }
+
+
+        //public async Task<PeginatedResponseBlogDTOs> GetBlogsBySorting(int pageNumber, int pageSize, string sortBy)
+        //{
+        //    try
+        //    {
+
+        //        var query = _context.Blogs.Where(blog => !blog.IsDeleted);
+
+        //        // Sorting
+        //        switch (sortBy.ToLower())
+        //        {
+        //            // Order by random
+        //            case "random":
+        //                query = query.OrderByDescending(_ => Guid.NewGuid());
+        //                break;
+
+        //            // Order by popularity
+        //            case "popularity":
+        //                query = query.OrderByDescending(blog => blog.PopularBlog);
+        //                break;
+
+        //            // Order by recency
+        //            case "recency":
+        //                query = query.OrderByDescending(blog => blog.CreatedTime);
+        //                break;
+
+        //            // Default sorting
+        //            default:
+        //                query = query.OrderByDescending(blog => blog.CreatedTime);
+        //                break;
+        //        }
+
+        //        var totalBlogs = await query.CountAsync();
+        //        var totalPages = (int)Math.Ceiling((double)totalBlogs / pageSize);
+
+        //        var pagedBlogs = await query
+        //            .Skip((pageNumber - 1) * pageSize)
+        //            .Take(pageSize)
+        //            .Select(blog => new BlogDTO
+        //            {
+        //                BlogId = blog.BlogId,
+        //                Title = blog.Title,
+        //                Content = blog.Content,
+        //                ImageUrl = blog.ImageUrl,
+        //                PopularBlog = blog.PopularBlog,
+        //                CreatedTime = blog.CreatedTime,
+        //                LastModifiedTime = blog.LastModifiedTime,
+        //                CreatedBy = blog.CreatedBy,
+        //                ModifiedBy = blog.ModifiedBy,
+        //                CommentDTOs = _context.Comment
+        //                    .Where(comment => comment.BlogId == blog.BlogId && !comment.IsDeleted)
+        //                    .Select(comment => new CommentDTO
+        //                    {
+        //                        Id = comment.Id,
+        //                        Comments = comment.Comments,
+        //                        PopularComments = comment.PopularComments,
+        //                        CreatedTime = comment.CreatedTime,
+        //                        UserDTO = _context.Users
+        //                            .Where(user => comment.UserId == user.Id)
+        //                            .Select(user => new UserDTO
+        //                            {
+        //                                Id = user.Id,
+        //                                Username = user.UserName,
+        //                                Email = user.Email,
+        //                                PhoneNumber = user.PhoneNumber,
+        //                                Role = "Blogger"
+        //                            }).FirstOrDefault()
+        //                    })
+        //                    .ToList(),
+        //                UserDTO = _context.Users
+        //                    .Where(user => blog.UserId == user.Id)
+        //                    .Select(user => new UserDTO
+        //                    {
+        //                        Id = user.Id,
+        //                        Username = user.UserName,
+        //                        Email = user.Email,
+        //                        PhoneNumber = user.PhoneNumber,
+        //                        Role = "Blogger"
+        //                    }).FirstOrDefault(),
+        //                TotalUpvotes = _context.BlogVote.Where(vote => vote.BlogId == blog.BlogId).SumAsync(vote => vote.UpVote),
+        //                TotalDownvotes = _context.BlogVote.Where(vote => vote.BlogId == blog.BlogId).SumAsync(vote => vote.DownVote),
+        //                TotalComments = _context.Comment.Where(comment => comment.BlogId == blog.BlogId && !comment.IsDeleted).CountAsync()
+        //            })
+        //            .ToListAsync();
+
+        //        return new PeginatedResponseBlogDTOs
+        //        {
+        //            Status = true,
+        //            Message = "Blogs retrieved successfully!",
+        //            BlogComment = pagedBlogs,
+        //            TotalPages = totalPages,
+        //            CurrentPage = pageNumber
+        //        };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Log exception for debugging purposes
+        //        Console.WriteLine(ex.Message);
+
+        //        return new PeginatedResponseBlogDTOs
+        //        {
+        //            Status = false,
+        //            Message = "Sorry, something went wrong on our end. Please try again later."
+        //        };
+        //    }
+        //}
 
         // 
         public async Task<DashboardResponseDTOs> GetDashboardActivityStats(int? year, int? month)

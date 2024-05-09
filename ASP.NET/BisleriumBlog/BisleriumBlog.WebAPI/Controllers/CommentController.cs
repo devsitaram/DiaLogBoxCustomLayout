@@ -1,11 +1,8 @@
-﻿using System.Windows.Input;
-using BisleriumBlog.Application.Common.Interface;
-using BisleriumBlog.Application.DTOs.CommentDTOs;
+﻿using BisleriumBlog.Application.DTOs.CommentDTOs;
 using BisleriumBlog.Application.DTOs.CommentDTOs.Update;
 using BisleriumBlog.Application.Interface.Repository;
 using BisleriumBlog.WebAPI.Helper;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 
@@ -27,16 +24,30 @@ namespace BisleriumBlog.WebAPI.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("/api/post/comment")]
-        public async Task<ResponseComments> PostComment(RequestCommentDTO model)
+        public async Task<IActionResult> PostComment(string connectionId, RequestCommentDTO model)
         {
             var result = await _comment.PostComment(model);
             if (result.Status == true)
             {
-                await _Rhub.Clients.Users(model.UserId).SendAsync("Comment Added");
-
+                await _Rhub.Clients.Client(connectionId).SendAsync("The blogger can commented your post.");
+                return Ok(result);
             }
-            return result;
+            return BadRequest(result);
         }
+
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[Route("/api/post/comment")]
+        //public async Task<ResponseComments> PostComment(RequestCommentDTO model)
+        //{
+        //    var result = await _comment.PostComment(model);
+        //    if (result.Status == true)
+        //    {
+        //        await _Rhub.Clients.Users(model.UserId).SendAsync("Comment Added");
+
+        //    }
+        //    return result;
+        //}
 
         [HttpGet]
         [AllowAnonymous]

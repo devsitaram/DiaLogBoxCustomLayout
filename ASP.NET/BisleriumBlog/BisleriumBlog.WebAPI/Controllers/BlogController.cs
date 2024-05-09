@@ -19,13 +19,14 @@ namespace BisleriumBlog.WebAPI.Controllers
             _webHostEnvironment = iWebHostEnvironment;
         }
 
+        // [Authorize(Roles = "Blogger")]
         [HttpPost]
         [Route("/api/blog/post")]
         public async Task<ResponseBlog> PostBlog([FromForm] BlogRequestDTO model)
         {
             // Check if the uploaded file is an image (upload image type)
             string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
-            string fileExtension = Path.GetExtension(model.ImageFile.FileName);
+            string fileExtension = Path.GetExtension(model.BlogImage.FileName);
             if (!allowedExtensions.Contains(fileExtension.ToLower()))
             {
                 return new ResponseBlog
@@ -36,7 +37,7 @@ namespace BisleriumBlog.WebAPI.Controllers
             }
 
             // Check the file size (validation)
-            long size = model.ImageFile.Length;
+            long size = model.BlogImage.Length;
             if (size > 3 * 1024 * 1024) // 3 MB limit
             {
                 return new ResponseBlog
@@ -52,54 +53,91 @@ namespace BisleriumBlog.WebAPI.Controllers
             string imageUrl = Path.Combine("/Images/BlogImages/", fileName);
             using (var stream = new FileStream(path, FileMode.Create))
             {
-                await model.ImageFile.CopyToAsync(stream);
+                await model.BlogImage.CopyToAsync(stream);
             }
 
             var result = await _blog.BlogPost(model, imageUrl);
             return result;
         }
 
+        // [Authorize(Roles = "Blogger")]
         [HttpGet]
-        [Route("/api/all/blog")]
-        public async Task<PeginatedResponseBlogDTOs> GetBlogs(int pageNumber = 1, int pageSize = 10)
+        [Route("/api/blog/{blogId}")]
+        public async Task<ResponseBlogDetail> GetBlogs(int blogId)
         {
-            var result = await _blog.GetBlogs(pageNumber, pageSize);
+            var result = await _blog.GetBlogById(blogId);
             return result;
         }
 
+        // [Authorize(Roles = "Blogger")]
         [HttpDelete]
-        [Route("/api/delete/blog/{blodId}")]
-        public async Task<ResponseBlog> DeleteBlog([FromQuery] int blogId)
+        [Route("/api/delete/{blogId}")]
+        public async Task<ResponseBlog> DeleteBlog(int blogId)
         {
-            var result = await _blog.DeleteBlogPost(blogId);
+            var result = await _blog.DeleteBlog(blogId);
             return result;
         }
 
-        [HttpPatch]
-        [Route("/api/update/blog/{blodId}")]
-        public async Task<ResponseBlog> Updateblog([FromQuery] int blodId, [FromBody]UpdateBlog model)
+        // [Authorize(Roles = "Blogger")]
+        [HttpPut]
+        [Route("/api/update/blog/{blogId}")]
+        public async Task<ResponseBlog> UpdateBlog(int blogId, [FromForm] BlogRequestDTO model)
         {
-            var result = await _blog.UpdateBlog(blodId, model);
+            // Check if the uploaded file is an image (upload image type)
+            string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+            string fileExtension = Path.GetExtension(model.BlogImage.FileName);
+            if (!allowedExtensions.Contains(fileExtension.ToLower()))
+            {
+                return new ResponseBlog
+                {
+                    Status = false,
+                    Message = "Only image files (jpg, jpeg, png, gif, bmp) are allowed."
+                };
+            }
+
+            // Check the file size (validation)
+            long size = model.BlogImage.Length;
+            if (size > 3 * 1024 * 1024) // 3 MB limit
+            {
+                return new ResponseBlog
+                {
+                    Status = false,
+                    Message = "Image size must be less than 3 MB."
+                };
+            }
+
+            string fileName = Path.GetRandomFileName() + fileExtension;
+            string path = Path.Combine(_webHostEnvironment.WebRootPath, "Images/BlogImages", fileName);
+
+            string imageUrl = Path.Combine("/Images/BlogImages/", fileName);
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await model.BlogImage.CopyToAsync(stream);
+            }
+
+            var result = await _blog.UpdateBlog(blogId, imageUrl, model);
             return result;
         }
 
+        // [Authorize(Roles = "Blogger")]
         [HttpGet]
-        [Route("/api/user/blog/{userId}")]
+        [Route("/api/user/blog/")]
         public async Task<PeginatedResponseBlogDTOs> GetBlogs(string userId)
         {
             var result = await _blog.GetBlogsByUserId(userId);
             return result;
         }
 
+        // [Authorize(Roles = "Blogger")]
         [HttpGet]
         [Route("/api/all/blog/by/sorting/")]
-        public async Task<PeginatedResponseBlogDTOs> GetBlogsBySorting(int pageNumber, int pageSize, string sortBy)
+        public async Task<PeginatedResponseBlogDTOs> GetBlogsBySorting(int pageNumber = 1, int pageSize = 10, string sortBy = "recency")
         {
             var result = await _blog.GetBlogsBySorting(pageNumber, pageSize, sortBy);
             return result;
         }
 
-
+        // [Authorize(Roles = "Blogger")]
         [HttpGet]
         [Route("/api/activity/status/")]
         public async Task<DashboardResponseDTOs> GetDashboardActivityStats(int year, int month)
@@ -107,5 +145,6 @@ namespace BisleriumBlog.WebAPI.Controllers
             var result = await _blog.GetDashboardActivityStats(year, month);
             return result;
         }
+
     }
 }

@@ -23,7 +23,7 @@ namespace BisleriumBlog.WebAPI.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [Route("/api/react/blog/vote")]
+        [Route("/api/react/blog/vote/{blogId}")]
         public async Task<ResponseDTO> PostCommentVote(RequestBlogVoteDTO model)
         {
             var result = await _blogVote.SetVoteInBlog(model);

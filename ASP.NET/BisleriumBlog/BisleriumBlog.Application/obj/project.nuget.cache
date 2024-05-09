@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8ONAfd1J3kWcc+q9wwrJ0dOIzP5KlB3/0xQW7lWI/S8aqV9cwrXeLePsh1R3VlJuSK6R3WuOiaFXp3hOdZwdsw==",
+  "dgSpecHash": "CRoSLWxL5QKKbL+27qXex7csJiaitarQ0DkFy+1XrmVQovwy4ytsW1O+pLp1dvUF2t+B0eDNK4w2cswMJi9RBA==",
   "success": true,
-  "projectFilePath": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.Application\\BisleriumBlog.Application.csproj",
+  "projectFilePath": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.Application\\BisleriumBlog.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.4\\microsoft.aspnetcore.cryptography.internal.8.0.4.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.4\\microsoft.aspnetcore.cryptography.keyderivation.8.0.4.nupkg.sha512",

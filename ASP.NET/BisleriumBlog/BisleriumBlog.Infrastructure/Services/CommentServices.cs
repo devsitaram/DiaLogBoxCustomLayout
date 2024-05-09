@@ -1,5 +1,4 @@
-﻿using BisleriumBlog.Application.DTOs.BlogDTOs;
-using BisleriumBlog.Application.DTOs.CommentDTOs;
+﻿using BisleriumBlog.Application.DTOs.CommentDTOs;
 using BisleriumBlog.Application.DTOs.CommentDTOs.Update;
 using BisleriumBlog.Application.Interface.Repository;
 using BisleriumBlog.Domain.Entities;
@@ -35,7 +34,9 @@ namespace BisleriumBlog.Infrastructure.Services
                 _context.Comment.Add(comment);
                 await _context.SaveChangesAsync();
 
-                // var allComments = await _context.Comment.Where(c => c.BlogId == model.BlogId && !c.IsDeleted).ToListAsync();
+                // var userId = _context.Blogs.Where(blog => blog.BlogId = model.BlogId);
+                //var blogPostUserConnectionId = _context.Users.Where(user => user.Id = userId).Get(ConnectionId)
+                // There used the send notification function by user connection id
 
                 return new ResponseComments
                 {
@@ -122,10 +123,6 @@ namespace BisleriumBlog.Infrastructure.Services
                 commment.DeletedBy = Guid.NewGuid();
 
                 await _context.SaveChangesAsync();
-
-                //var allBlogs = await _context.Blogs
-                //                              .Where(b => !b.IsDeleted)
-                //                              .ToListAsync();
 
                 return new ResponseComments
                 {

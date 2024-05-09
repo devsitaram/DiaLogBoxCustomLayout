@@ -6,7 +6,6 @@ C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBl
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.Domain\obj\Debug\net8.0\BisleriumBlog.Domain.AssemblyInfoInputs.cache
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.Domain\obj\Debug\net8.0\BisleriumBlog.Domain.AssemblyInfo.cs
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.Domain\obj\Debug\net8.0\BisleriumBlog.Domain.csproj.CoreCompileInputs.cache
-C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.Domain\obj\Debug\net8.0\BisleriumBlog.Domain.sourcelink.json
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.Domain\obj\Debug\net8.0\BisleriumBlog.Domain.dll
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.Domain\obj\Debug\net8.0\refint\BisleriumBlog.Domain.dll
 C:\Documents\FinalYears\DotNet_Application_Development\BisleriumBlog\BisleriumBlog.Domain\obj\Debug\net8.0\BisleriumBlog.Domain.pdb

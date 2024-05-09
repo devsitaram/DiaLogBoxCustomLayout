@@ -1,40 +1,80 @@
 {
   "Files": [
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\4mb5qjmp.xl4.png",
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\2po4w5af.5h1.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\2po4w5af.5h1.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\2yalne4x.4aj.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\2yalne4x.4aj.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\4mb5qjmp.xl4.png",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\4mb5qjmp.xl4.png"
     },
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\awczbqlg.gm3.jpg",
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\awczbqlg.gm3.jpg",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\awczbqlg.gm3.jpg"
     },
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\b1egugs4.ifg.jpg",
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\b0utqg4a.b4d.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\b0utqg4a.b4d.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\b1egugs4.ifg.jpg",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\b1egugs4.ifg.jpg"
     },
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\e0cnk03k.yh5.jpg",
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\e0cnk03k.yh5.jpg",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\e0cnk03k.yh5.jpg"
     },
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\i44d5g5b.wqr.jpg",
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\f1gqby05.w5c.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\f1gqby05.w5c.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\i3echxwm.spd.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\i3echxwm.spd.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\i44d5g5b.wqr.jpg",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\i44d5g5b.wqr.jpg"
     },
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\m4usxypv.ha3.png",
-      "PackagePath": "staticwebassets\\Images\\BlogImages\\m4usxypv.ha3.png"
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\ilmg5ycb.3og.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\ilmg5ycb.3og.png"
     },
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\todu123p.ute.png",
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\nzkek0ri.s1n.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\nzkek0ri.s1n.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\todu123p.ute.png",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\todu123p.ute.png"
     },
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\v13rhuvq.pnq.png",
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\ugooujyl.5cn.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\ugooujyl.5cn.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\v13rhuvq.pnq.png",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\v13rhuvq.pnq.png"
     },
     {
-      "Id": "C:\\Documents\\ASP.NET\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\vhszu3yk.w41.jpg",
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\vhszu3yk.w41.jpg",
       "PackagePath": "staticwebassets\\Images\\BlogImages\\vhszu3yk.w41.jpg"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\xuw1rwwr.igl.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\xuw1rwwr.igl.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\y3qmmx30.ogf.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\y3qmmx30.ogf.png"
+    },
+    {
+      "Id": "C:\\Documents\\FinalYears\\DotNet_Application_Development\\BisleriumBlog\\BisleriumBlog.WebAPI\\wwwroot\\Images\\BlogImages\\z1i4la2h.mtl.png",
+      "PackagePath": "staticwebassets\\Images\\BlogImages\\z1i4la2h.mtl.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.BisleriumBlog.WebAPI.Microsoft.AspNetCore.StaticWebAssets.props",
